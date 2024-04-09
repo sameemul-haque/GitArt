@@ -4,8 +4,8 @@
   --week-width: calc(var(--square-size) + var(--square-gap));
 }
 body {
-  color: #0d1117;
-  background-color: #fafbfc;
+  color: #fafbfc;
+  background-color: #0d1117;
   font-style: normal;
   font-size: 12px;
   font-family: "Poppins", sans-serif;
