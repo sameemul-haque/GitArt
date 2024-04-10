@@ -7,33 +7,29 @@ document.addEventListener("DOMContentLoaded", function () {
     square.setAttribute("data-level", "0");
     squares.push(square);
     squaresContainer.appendChild(square);
-  }
+    square.addEventListener("click", function () {
+      const currentLevel = parseInt(square.getAttribute("data-level"));
+      increaseLevel(square, currentLevel);
+    });
 
-  let currentLevel = 0;
-
-  function increaseLevel() {
-    if (currentLevel < 4) {
-      currentLevel++;
-      updateSquareLevel();
-    }
-  }
-
-  function decreaseLevel() {
-    if (currentLevel > 0) {
-      currentLevel--;
-      updateSquareLevel();
-    }
-  }
-
-  function updateSquareLevel() {
-    squares.forEach((square) => {
-      square.setAttribute("data-level", currentLevel);
+    square.addEventListener("contextmenu", function (event) {
+      event.preventDefault();
+      const currentLevel = parseInt(square.getAttribute("data-level"));
+      decreaseLevel(square, currentLevel);
     });
   }
 
-  squaresContainer.addEventListener("click", increaseLevel);
-  squaresContainer.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-    decreaseLevel();
-  });
+  function increaseLevel(square, currentLevel) {
+    if (currentLevel < 4) {
+      const newLevel = currentLevel + 1;
+      square.setAttribute("data-level", newLevel);
+    }
+  }
+
+  function decreaseLevel(square, currentLevel) {
+    if (currentLevel > 0) {
+      const newLevel = currentLevel - 1;
+      square.setAttribute("data-level", newLevel);
+    }
+  }
 });
