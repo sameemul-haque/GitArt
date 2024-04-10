@@ -74,17 +74,21 @@ li {
 }
 
 .squares li {
-  background-color: #ebedf0;
+  background-color: #161b22;
 }
 
 .squares li[data-level="1"] {
-  background-color: #c6e48b;
+  background-color: #0e4429;
 }
 
 .squares li[data-level="2"] {
-  background-color: #7bc96f;
+  background-color: #006d32;
 }
 
 .squares li[data-level="3"] {
-  background-color: #196127;
+  background-color: #26a641;
+}
+
+.squares li[data-level="4"] {
+  background-color: #39d353;
 }
