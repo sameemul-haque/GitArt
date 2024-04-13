@@ -40,4 +40,4 @@ To create an empty commit with a specific date:
 git commit --allow-empty --date="31 Oct 2022 11:11:11 +0530" --allow-empty-message -m ""
 ```
 
-
+![preview](/public/banner.png "preview")
