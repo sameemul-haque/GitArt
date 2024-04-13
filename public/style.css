@@ -61,7 +61,8 @@ body {
 
 .graph {
   padding: 20px;
-  border: 1px #e1e4e8 solid;
+  border: 1px #30363d solid;
+  border-radius: 6px;
   margin: 20px;
 }
 
@@ -75,6 +76,7 @@ li {
 
 .squares li {
   background-color: #161b22;
+  border-radius: 2px;
 }
 
 .squares li[data-level="1"] {
@@ -91,4 +93,20 @@ li {
 
 .squares li[data-level="4"] {
   background-color: #39d353;
+}
+
+.previous-year {
+  opacity: 0;
+}
+
+#year-select {
+  color: #fafbfc;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+}
+
+#year-select option:checked {
+  background-color: #39d353;
+  width: 100%;
 }
