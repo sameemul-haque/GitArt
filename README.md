@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img src="/assets/logo.svg" alt="Logo" width="100" height="100">
+	<img src="/public/assets/logo.svg" alt="Logo" width="100" height="100">
   <br/>
 	GitArt
 </h1>

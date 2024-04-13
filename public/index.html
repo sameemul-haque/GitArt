@@ -8,7 +8,7 @@
       name="description"
       content="Enhance your GitHub contribution graph with GitArt - a powerful tool enabling users to craft custom commit commands. Personalize your profile with names, messages, symbols, logos, and more, shaping your GitHub presence uniquely."
     />
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,9 +18,36 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 style="display: flex; justify-content: center; font-size: 3rem">
-      GitArt
+    <h1
+      style="
+        color: #39d353;
+        display: flex;
+        justify-content: center;
+        font-size: 3rem;
+        align-items: center;
+      "
+    >
+      <img
+        style="padding: 1rem"
+        src="assets/logo.svg"
+        alt="Logo"
+        width="100"
+        height="100"
+      />GitArt
     </h1>
+    <p
+      style="
+        font-size: 0.9rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      "
+    >
+      <b>GitArt</b> is a tool that allows users to manipulate their GitHub contribution graph
+      by generating Git commit commands. With this tool, users can customize
+      their contribution graph to display their name, messages, symbols, logos,
+      or any other desired patterns.
+    </p>
     <div style="display: flex; justify-content: center">
       <div
         class="graph"
