@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <title>GitArt - GitHub Contribution Graph Customizer</title>
     <meta
       name="description"
-      content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, logos, and more, shaping your GitHub presence uniquely."
+      content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, and logos, shaping your GitHub presence uniquely."
     />
 
     <meta name="robots" content="index,follow" />
@@ -20,7 +20,7 @@
     />
     <meta
       property="og:description"
-      content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, logos, and more, shaping your GitHub presence uniquely."
+      content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, and logos, shaping your GitHub presence uniquely."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -34,7 +34,10 @@
       content="GitArt - GitHub Contribution Graph Customizer"
     />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:url" content="https://sameemul-haque.github.io/GitArt/" />
+    <meta
+      property="og:url"
+      content="https://sameemul-haque.github.io/GitArt/"
+    />
     <meta
       property="og:site_name"
       content="GitArt - GitHub Contribution Graph Customizer"
@@ -63,55 +66,17 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1
-      style="
-        color: #39d353;
-        display: flex;
-        justify-content: center;
-        font-size: 3rem;
-        align-items: center;
-        margin-top: 2rem;
-        font-family: 'Pixelify Sans', sans-serif;
-        font-optical-sizing: auto;
-        font-size: 5rem;
-      "
-    >
-      <img
-        style="padding: 1rem; font-size: 1rem"
-        src="assets/logo.svg"
-        alt="Logo"
-        width="100"
-        height="100"
-      />GitArt
-    </h1>
-    <p
-      style="
-        font-size: 0.9rem;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-      "
-    >
+    <h1><img class="logo-gitart" src="assets/logo.svg" alt="Logo" />GitArt</h1>
+    <h2>GitHub Contribution Graph Customizer</h2>
+    <p id="description-gitart">
       <b>GitArt</b> is a tool that allows users to manipulate their GitHub
       contribution graph by generating Git commit commands. With this tool,
       users can customize their contribution graph to display their name,
       messages, symbols, logos, or any other desired patterns.
     </p>
-    <div
-      style="
-        display: flex;
-        align-items: center;
-        justify-content: end;
-        margin-right: 5vw;
-      "
-    ></div>
-    <div style="display: flex; justify-content: center">
-      <div
-        class="graph"
-        style="flex-wrap: wrap; flex-direction: column; overflow-x: auto"
-      >
+    <div class="graph-container">
+      <div class="graph">
         <select size="3" id="year-select"></select>
-
         <ul class="months">
           <li>Jan</li>
           <li>Feb</li>
