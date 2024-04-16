@@ -47,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!square.classList.contains("previous-year")) {
         square.addEventListener("click", function () {
           const currentLevel = parseInt(square.getAttribute("data-level"));
+          const options = { year: "numeric", month: "short", day: "numeric" };
+          console.log(new Date(square.getAttribute("data-date")).toLocaleDateString("en", options));
           increaseLevel(square, currentLevel);
         });
 
@@ -60,7 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
           const target = event.target;
           if (target && target.matches("li[data-date]")) {
             const date = target.getAttribute("data-date");
-            target.title = new Date(date).toLocaleDateString();
+            const options = { year: "numeric", month: "long", day: "numeric" };
+            target.title = new Date(date).toLocaleDateString("en", options);
           }
         });
       }
