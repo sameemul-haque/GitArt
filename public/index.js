@@ -41,21 +41,33 @@ document.addEventListener("DOMContentLoaded", function () {
       if (currentDate.getFullYear() < startDate.getFullYear()) {
         square.classList.add("previous-year");
       }
-
+      
+      dateforgitlist = [];
       squaresContainer.appendChild(square);
-
       if (!square.classList.contains("previous-year")) {
         square.addEventListener("click", function () {
           const currentLevel = parseInt(square.getAttribute("data-level"));
           const options = { year: "numeric", month: "short", day: "numeric" };
-          console.log(new Date(square.getAttribute("data-date")).toLocaleDateString("en", options));
+          dateforgit = new Date(square.getAttribute("data-date")).toLocaleDateString("en", options);
+          dateforgitlist.push(dateforgit);
+          console.log("dateforgit:",dateforgit);
+          console.log("dateforgitlist: ",dateforgitlist);
+          
           increaseLevel(square, currentLevel);
         });
 
         square.addEventListener("contextmenu", function (event) {
           event.preventDefault();
           const currentLevel = parseInt(square.getAttribute("data-level"));
+          const options = { year: "numeric", month: "short", day: "numeric" };
+          dateforgit = new Date(square.getAttribute("data-date")).toLocaleDateString("en", options);
           decreaseLevel(square, currentLevel);
+          const index = dateforgitlist.indexOf(dateforgit);
+          if (index > -1) {
+            dateforgitlist.splice(index, 1);
+          }
+          console.log("dateforgit:",dateforgit);
+          console.log("dateforgitlist: ",dateforgitlist);
         });
 
         square.addEventListener("mouseover", function (event) {
