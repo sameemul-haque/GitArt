@@ -3,6 +3,7 @@
   --square-gap: 5px;
   --week-width: calc(var(--square-size) + var(--square-gap));
 }
+
 body {
   color: #fafbfc;
   background-color: #0d1117;
@@ -48,9 +49,11 @@ h2 {
 .months {
   grid-area: months;
 }
+
 .days {
   grid-area: days;
 }
+
 .squares {
   grid-area: squares;
 }
@@ -76,6 +79,7 @@ h2 {
 .generate-btn:hover {
   transform: scale(1.05);
 }
+
 .graph {
   display: inline-grid;
   grid-template-areas:
@@ -93,20 +97,8 @@ h2 {
 }
 
 .months {
-  display: grid;
-  grid-template-columns:
-    calc(var(--week-width) * 4) /* Jan */
-    calc(var(--week-width) * 4) /* Feb */
-    calc(var(--week-width) * 4) /* Mar */
-    calc(var(--week-width) * 5) /* Apr */
-    calc(var(--week-width) * 4) /* May */
-    calc(var(--week-width) * 4) /* Jun */
-    calc(var(--week-width) * 5) /* Jul */
-    calc(var(--week-width) * 4) /* Aug */
-    calc(var(--week-width) * 4) /* Sep */
-    calc(var(--week-width) * 5) /* Oct */
-    calc(var(--week-width) * 4) /* Nov */
-    calc(var(--week-width) * 5) /* Dec */;
+  display: flex;
+  justify-content: space-around;
 }
 
 .days,
@@ -166,22 +158,73 @@ li {
   width: 100%;
 }
 
+.code-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.code-editor {
+  background-color: #161b22;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.code-header {
+  display: flex;
+  justify-content: end;
+  margin: 10px;
+}
+
+.code-icon {
+  padding: 5px;
+  width: 20px;
+  transition: .2s ease;
+}
+
+.code-icon:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #0d1117;
+}
+
+.editor-content {
+  margin: 0 10px 10px;
+  color: white;
+}
+
+
+.editor-content .color-1 {
+  color: rgb(86 156 214);
+}
+
+.editor-content .color-2 {
+  color: rgb(156 220 254);
+}
+
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 3rem;
   }
+
   h2 {
     font-size: 0.75rem;
     margin-top: -40px;
   }
+
   .logo-gitart {
     width: 50px;
     height: 50px;
   }
+
   .generate-btn {
     margin-right: 1rem;
     margin-bottom: 1rem;
   }
+
   #description-gitart {
     font-size: 0.8rem;
     margin-left: 1rem;

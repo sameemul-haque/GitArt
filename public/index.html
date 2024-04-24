@@ -1,111 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>GitArt - GitHub Contribution Graph Customizer</title>
-    <meta
-      name="description"
-      content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, and logos, shaping your GitHub presence uniquely."
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="robots" content="index,follow" />
-    <meta name="googlebot" content="index,follow" />
-    <link rel="canonical" href="https://sameemul-haque.github.io/GitArt/" />
+  <title>GitArt - GitHub Contribution Graph Customizer</title>
+  <meta name="description"
+    content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, and logos, shaping your GitHub presence uniquely." />
 
-    <meta
-      property="og:title"
-      content="GitArt - GitHub Contribution Graph Customizer"
-    />
-    <meta
-      property="og:description"
-      content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, and logos, shaping your GitHub presence uniquely."
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://sameemul-haque.github.io/GitArt/banner.png"
-    />
-    <meta property="og:image:width" content="1366" />
-    <meta property="og:image:height" content="768" />
-    <meta
-      property="og:image:alt"
-      content="GitArt - GitHub Contribution Graph Customizer"
-    />
-    <meta property="og:image:type" content="image/png" />
-    <meta
-      property="og:url"
-      content="https://sameemul-haque.github.io/GitArt/"
-    />
-    <meta
-      property="og:site_name"
-      content="GitArt - GitHub Contribution Graph Customizer"
-    />
+  <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <link rel="canonical" href="https://sameemul-haque.github.io/GitArt/" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@sameemul_haque/" />
-    <meta name="twitter:title" content="Sameemul Haque" />
-    <meta name="twitter:creator" content="@sameemul_haque/" />
-    <meta
-      name="twitter:description"
-      content="GitArt - GitHub Contribution Graph Customizer"
-    />
-    <meta
-      name="twitter:image"
-      content="https://sameemul-haque.github.io/GitArt/banner.png"
-    />
+  <meta property="og:title" content="GitArt - GitHub Contribution Graph Customizer" />
+  <meta property="og:description"
+    content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, and logos, shaping your GitHub presence uniquely." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://sameemul-haque.github.io/GitArt/banner.png" />
+  <meta property="og:image:width" content="1366" />
+  <meta property="og:image:height" content="768" />
+  <meta property="og:image:alt" content="GitArt - GitHub Contribution Graph Customizer" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:url" content="https://sameemul-haque.github.io/GitArt/" />
+  <meta property="og:site_name" content="GitArt - GitHub Contribution Graph Customizer" />
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1><img class="logo-gitart" src="assets/logo.svg" alt="Logo" />GitArt</h1>
-    <h2>GitHub Contribution Graph Customizer</h2>
-    <p id="description-gitart">
-      <b>GitArt</b> is a tool that allows users to manipulate their GitHub
-      contribution graph by generating Git commit commands. With this tool,
-      users can customize their contribution graph to display their name,
-      messages, symbols, logos, or any other desired patterns.
-    </p>
-    <div class="graph-container">
-      <div class="graph">
-        <select size="3" id="year-select"></select>
-        <ul class="months">
-          <li>Jan</li>
-          <li>Feb</li>
-          <li>Mar</li>
-          <li>Apr</li>
-          <li>May</li>
-          <li>Jun</li>
-          <li>Jul</li>
-          <li>Aug</li>
-          <li>Sep</li>
-          <li>Oct</li>
-          <li>Nov</li>
-          <li>Dec</li>
-        </ul>
-        <ul class="days">
-          <li>Sun</li>
-          <li>Mon</li>
-          <li>Tue</li>
-          <li>Wed</li>
-          <li>Thu</li>
-          <li>Fri</li>
-          <li>Sat</li>
-        </ul>
-        <ul class="squares">
-          <!-- added via javascript -->
-        </ul>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@sameemul_haque/" />
+  <meta name="twitter:title" content="Sameemul Haque" />
+  <meta name="twitter:creator" content="@sameemul_haque/" />
+  <meta name="twitter:description" content="GitArt - GitHub Contribution Graph Customizer" />
+  <meta name="twitter:image" content="https://sameemul-haque.github.io/GitArt/banner.png" />
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1><img class="logo-gitart" src="assets/logo.svg" alt="Logo" />GitArt</h1>
+  <h2>GitHub Contribution Graph Customizer</h2>
+  <p id="description-gitart">
+    <b>GitArt</b> is a tool that allows users to manipulate their GitHub
+    contribution graph by generating Git commit commands. With this tool,
+    users can customize their contribution graph to display their name,
+    messages, symbols, logos, or any other desired patterns.
+  </p>
+  <div class="graph-container">
+    <div class="graph">
+      <select size="3" id="year-select"></select>
+      <ul class="months">
+        <li>Jan</li>
+        <li>Feb</li>
+        <li>Mar</li>
+        <li>Apr</li>
+        <li>May</li>
+        <li>Jun</li>
+        <li>Jul</li>
+        <li>Aug</li>
+        <li>Sep</li>
+        <li>Oct</li>
+        <li>Nov</li>
+        <li>Dec</li>
+      </ul>
+      <ul class="days">
+        <li>Sun</li>
+        <li>Mon</li>
+        <li>Tue</li>
+        <li>Wed</li>
+        <li>Thu</li>
+        <li>Fri</li>
+        <li>Sat</li>
+      </ul>
+      <ul class="squares">
+        <!-- added via javascript -->
+      </ul>
+    </div>
+  </div>
+  <button class="generate-btn" onclick="">Generate</button>
+  <div class="code-container">
+    <div class="code-editor">
+      <div class="code-header"><svg xmlns="http://www.w3.org/2000/svg" fill="#26a641" viewBox="0 0 115.77 122.88"
+          class="code-icon" xml:space="preserve">
+          <path
+            d="M89.62 13.96v7.73h12.2v.02c3.85.01 7.34 1.57 9.86 4.1 2.5 2.51 4.06 5.98 4.07 9.82h.02v73.3h-.02c-.01 3.84-1.57 7.33-4.1 9.86-2.51 2.5-5.98 4.06-9.82 4.07v.02H40.1v-.02c-3.84-.01-7.34-1.57-9.86-4.1-2.5-2.51-4.06-5.98-4.07-9.82h-.02V92.51h-12.2v-.02c-3.84-.01-7.34-1.57-9.86-4.1-2.5-2.51-4.06-5.98-4.07-9.82H0V13.95h.02c.01-3.85 1.58-7.34 4.1-9.86C6.63 1.59 10.1.03 13.94.02V0h61.73v.02c3.85.01 7.34 1.57 9.86 4.1 2.5 2.51 4.06 5.98 4.07 9.82h.02zm-10.58 7.73v-7.75h.02c0-.91-.39-1.75-1.01-2.37-.61-.61-1.46-1-2.37-1v.02H13.95v-.02c-.91 0-1.75.39-2.37 1.01-.61.61-1 1.46-1 2.37h.02v64.62h-.02c0 .91.39 1.75 1.01 2.37.61.61 1.46 1 2.37 1v-.02h12.2V35.64h.02c.01-3.85 1.58-7.34 4.1-9.86 2.51-2.5 5.98-4.06 9.82-4.07v-.02zm26.14 87.23V35.63h.02c0-.91-.39-1.75-1.01-2.37-.61-.61-1.46-1-2.37-1v.02H40.09v-.02c-.91 0-1.75.39-2.37 1.01-.61.61-1 1.46-1 2.37h.02v73.3h-.02c0 .91.39 1.75 1.01 2.37.61.61 1.46 1 2.37 1v-.02h61.73v.02c.91 0 1.75-.39 2.37-1.01.61-.61 1-1.46 1-2.37h-.02z"
+            style="fill-rule:evenodd;clip-rule:evenodd" />
+        </svg>
+      </div>
+      <div class="editor-content">
+        <code class="code">
+        <p><span class="color-1"> git commit --allow-empty --date=<span class="color-2">"27 Oct 2022"</span> --allow-empty-message -m "" </span><span class="color-2">&&</span></p>
+        <p><span class="color-1"> git commit --allow-empty --date=<span class="color-2">"28 Oct 2022"</span> --allow-empty-message -m "" </span><span class="color-2">&&</span></p>
+        <p><span class="color-1"> git commit --allow-empty --date=<span class="color-2">"29 Oct 2022"</span> --allow-empty-message -m "" </span><span class="color-2">&&</span></p>
+        <p><span class="color-1"> git commit --allow-empty --date=<span class="color-2">"30 Oct 2022"</span> --allow-empty-message -m "" </span><span class="color-2">&&</span></p>
+        <p><span class="color-1"> git commit --allow-empty --date=<span class="color-2">"31 Oct 2022"</span> --allow-empty-message -m "" </span></p>
+
+        </code>
       </div>
     </div>
-    <button class="generate-btn" onclick="window.alert('Will do later 😴')">Generate</button>
-    <script src="index.js"></script>
-  </body>
+  </div>
+  <script src="index.js"></script>
+</body>
+
 </html>
