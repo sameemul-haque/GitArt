@@ -46,6 +46,17 @@ h2 {
   margin-right: auto;
 }
 
+#instructions-gitart {
+  font-size: 0.9rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#instructions-gitart a {
+  color: #39d353;
+}
+
 .months {
   grid-area: months;
 }
@@ -114,7 +125,7 @@ h2 {
   grid-auto-columns: var(--square-size);
 }
 
-li {
+.graph-container li {
   list-style-type: none;
 }
 

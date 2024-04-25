@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function generateCode() {
   const dateList = dateforgitlist;
   if (dateList.length === 0) {
-    alert("Don't try to play a fool with me Nikesh!");
+    alert("empty");
     return;
   }
   const codeContainer = document.querySelector(".code");

@@ -19,22 +19,22 @@
 > [!IMPORTANT]  
 > If you're reading this, it means you like this project :). Feel free to give it a star ⭐.
 
+
+## Usage
+
+- Select a year (choosing a year before joining GitHub is better).
+- Left click on the squares to activate and right click to deactivate them.
+- Click on the `Generate` button to get the code.
+- Create a [new](https://github.com/new) GitHub repository.
+- Clone the repository into your local machine.
+- Ensure your git username and email are [configured correctly](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account).
+- Copy the generated code into your terminal.
+- Push the changes to the remote repository.
+
+
 ## Features
 
 - Easily create Git commits to modify the contribution graph on GitHub.
 - Customize the contribution graph for artistic, personal, or branding purposes.
-
-## Usage
-
-- Select the year you want to customize (Choosing the year before your GitHub joining year would be better, can use GitHub api for checking the joined date).
-- Select the desired rectangle(s) on the GitHub contribution graph that you want to customize and click `Generate` button.
-- Copy the generated Git commit command.
-- Run the copied command in your local Git repository to make the desired changes (better to create a new empty repo).
-- Push the changes to your GitHub repository to update the contribution graph.
-
-To create an empty commit with a specific date:
-```bash
-git commit --allow-empty --date="31 Oct 2022" --allow-empty-message -m ""
-```
 
 ![preview](/public/banner.png "preview")
