@@ -57,9 +57,55 @@ h2 {
   color: #39d353;
 }
 
-#github-join-date {
+.green-underline-text {
   color: #39d353;
   text-decoration: underline;
+  cursor: pointer;
+}
+
+#examples h3 {
+  font-size: 1.5rem;
+}
+
+#examples {
+  display: none;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 100%;
+  background-color: #0d1117;
+  z-index: 999;
+}
+
+.example-pic-container {
+  display: flex;
+  font-size: 1px;
+  flex-direction: column;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.example-pic{
+  margin-bottom: 1rem;
+}
+
+.close-btn {
+  /* background-color: red; */
+  display: flex;
+  justify-content: end;
+  margin: 1rem;
+}
+
+.close-btn-svg{
+  /* background-color: blue; */
   cursor: pointer;
 }
 
