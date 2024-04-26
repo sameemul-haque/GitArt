@@ -57,6 +57,12 @@ h2 {
   color: #39d353;
 }
 
+#github-join-date {
+  color: #39d353;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .months {
   grid-area: months;
 }

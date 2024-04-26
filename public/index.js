@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function generateCode() {
   const dateList = dateforgitlist;
   if (dateList.length === 0) {
-    alert("empty");
+    // alert("empty");
     return;
   }
   const codeContainer = document.querySelector(".code");
@@ -151,4 +151,23 @@ function copyCode() {
     codeIcon.innerHTML = `<path d="M89.62 13.96v7.73h12.2v.02c3.85.01 7.34 1.57 9.86 4.1 2.5 2.51 4.06 5.98 4.07 9.82h.02v73.3h-.02c-.01 3.84-1.57 7.33-4.1 9.86-2.51 2.5-5.98 4.06-9.82 4.07v.02H40.1v-.02c-3.84-.01-7.34-1.57-9.86-4.1-2.5-2.51-4.06-5.98-4.07-9.82h-.02V92.51h-12.2v-.02c-3.84-.01-7.34-1.57-9.86-4.1-2.5-2.51-4.06-5.98-4.07-9.82H0V13.95h.02c.01-3.85 1.58-7.34 4.1-9.86C6.63 1.59 10.1.03 13.94.02V0h61.73v.02c3.85.01 7.34 1.57 9.86 4.1 2.5 2.51 4.06 5.98 4.07 9.82h.02zm-10.58 7.73v-7.75h.02c0-.91-.39-1.75-1.01-2.37-.61-.61-1.46-1-2.37-1v.02H13.95v-.02c-.91 0-1.75.39-2.37 1.01-.61.61-1 1.46-1 2.37h.02v64.62h-.02c0 .91.39 1.75 1.01 2.37.61.61 1.46 1 2.37 1v-.02h12.2V35.64h.02c.01-3.85 1.58-7.34 4.1-9.86 2.51-2.5 5.98-4.06 9.82-4.07v-.02zm26.14 87.23V35.63h.02c0-.91-.39-1.75-1.01-2.37-.61-.61-1.46-1-2.37-1v.02H40.09v-.02c-.91 0-1.75.39-2.37 1.01-.61.61-1 1.46-1 2.37h.02v73.3h-.02c0 .91.39 1.75 1.01 2.37.61.61 1.46 1 2.37 1v-.02h61.73v.02c.91 0 1.75-.39 2.37-1.01.61-.61 1-1.46 1-2.37h-.02z" style="fill-rule:evenodd;clip-rule:evenodd"/>`;
   }, 3000);
 
+}
+
+async function github_join_date() {
+  const username = prompt("Enter your GitHub username:");
+  if (!username) {
+    console.log("No username entered");
+    return;
+  }
+
+  try {
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    const userData = await response.json();
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const joinDate = new Date(userData.created_at).toLocaleDateString("en", options);
+    alert("Your GitHub join date is: " + joinDate);
+  } catch (error) {
+    alert("An error occurred while fetching the data. Please try again later.");
+    return null;
+  }
 }
