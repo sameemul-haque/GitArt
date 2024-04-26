@@ -13,12 +13,8 @@
 </h6>
 
 <p align="center">
-  <b>GitArt</b> is a tool that allows users to manipulate their GitHub contribution graph by generating Git commit commands. With this tool, users can customize their contribution graph to display their name, messages, symbols, logos, or any other desired patterns.
+  <b>GitArt</b> is a tool that allows users to customize their GitHub contribution graph by generating Git commit commands. With this tool, users can customize their contribution graph to display their name, messages, symbols, logos, or any other desired patterns.
 </p>
-
-> [!IMPORTANT]  
-> If you're reading this, it means you like this project :). Feel free to give it a star ⭐.
-
 
 ## Usage
 
@@ -36,5 +32,30 @@
 
 - Easily create Git commits to modify the contribution graph on GitHub.
 - Customize the contribution graph for artistic, personal, or branding purposes.
+
+## Examples
+<details>
+    <summary>Example images</summary>
+
+<br>
+
+![hello](public/assets/examples/hello.png)
+
+![gitart](public/assets/examples/gitart.png)
+
+![sameemul](public/assets/examples/sameemul.png)
+
+![i_use_arch_btw](public/assets/examples/i_use_arch_btw.png)
+
+<!--  ![your_image](public/assets/examples/your_image.png)  -->
+
+</details>
+
+## Acknowledgements
+
+- [Git Logo](https://git-scm.com/downloads/logos)
+- [GitHub Contributions](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)
+
+---
 
 ![preview](/public/banner.png "preview")
