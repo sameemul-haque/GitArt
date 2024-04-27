@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function generateCode() {
   const dateList = dateforgitlist;
   if (dateList.length === 0) {
-    alert("Please select atleast one date from the contribution graph!");
+    alert("Please select at least one date from the contribution graph!");
     return;
   }
   const codeContainer = document.querySelector(".code");
