@@ -99,9 +99,9 @@ h2 {
 
 .close-btn {
   /* background-color: red; */
-  display: flex;
-  justify-content: end;
-  margin: 1rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
 }
 
 .close-btn-svg{
