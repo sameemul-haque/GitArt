@@ -5,11 +5,11 @@
 </h1>
 
 <h6 align="center">
-  <a href="#features">Features</a>
-  ·
-  <a href="https://sameemul-haque.github.io/GitArt/">GitArt Website</a>
-  ·
-  <a href="#usage">Usage</a>
+	<a href="https://sameemul-haque.github.io/GitArt/"><img src="https://img.shields.io/badge/website-238636?style=for-the-badge"/></a>
+	˙
+	<a href="https://buymeacoffee.com/sameemul_haque"><img src="https://img.shields.io/badge/Buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=1B1B1B"/></a>
+ 	˙
+ 	<a href="#usage"><img src="https://img.shields.io/badge/usage-238636?style=for-the-badge"/></a>
 </h6>
 
 <p align="center">

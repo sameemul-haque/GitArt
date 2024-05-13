@@ -57,10 +57,25 @@ h2 {
   color: #39d353;
 }
 
-.green-underline-text {
+.underline-text {
   color: #39d353;
   text-decoration: underline;
   cursor: pointer;
+}
+
+#buymeacoffee {
+  color: #FFDD00;
+}
+
+#github {
+  color: #fafbfc;
+}
+
+.row-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
 }
 
 #examples h3 {
@@ -93,7 +108,7 @@ h2 {
   margin-bottom: 1rem;
 }
 
-.example-pic{
+.example-pic {
   margin-bottom: 1rem;
 }
 
@@ -104,7 +119,7 @@ h2 {
   right: 1rem;
 }
 
-.close-btn-svg{
+.close-btn-svg {
   /* background-color: blue; */
   cursor: pointer;
 }
