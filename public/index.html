@@ -8,6 +8,7 @@
   <title>GitArt - GitHub Contribution Graph Customizer</title>
   <meta name="description"
     content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, and logos, shaping your GitHub presence uniquely." />
+  <meta name="keywords" content="gitart, github contribution graph customizer" />
 
   <meta name="robots" content="index,follow" />
   <meta name="googlebot" content="index,follow" />
@@ -32,7 +33,7 @@
   <meta name="twitter:description" content="GitArt - GitHub Contribution Graph Customizer" />
   <meta name="twitter:image" content="https://sameemul-haque.github.io/GitArt/banner.png" />
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="https://sameemul-haque.github.io/GitArt/favicon.ico" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -109,7 +110,9 @@
       </ul>
     </div>
   </div>
-  <button class="generate-btn" onclick="generateCode()">Generate</button>
+  <button class="generate-btn" onclick="null">Generate using GitHub Actions</button>
+  <!-- <button class="generate-btn" onclick="null">Generate Shell Script</button> -->
+  <button class="generate-btn" onclick="displayCode()">Generate Manually</button>
   <div class="code-container">
     <div class="code-editor">
       <div class="code-header"><svg onclick="copyCode()" xmlns="http://www.w3.org/2000/svg" fill="#26a641"
@@ -143,6 +146,33 @@
       <!-- <img src="assets/examples/your_image.png" alt="your image" class="example-pic"> -->
     </div>
   </div>
+  <div class="form-box">
+    <form id="generate-form">
+      <div class="user-box">
+        <input type="text" name="username" required>
+        <label>GitHub username</label>
+      </div>
+      <div class="user-box">
+        <input type="password" name="github_token" required>
+        <label>GitHub token with repo access</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="repo_name" required>
+        <label>Repository name</label>
+      </div>
+      <div class="user-box">
+        <input type="email" name="github_commit_mail" required>
+        <label>GitHub commit mail</label>
+      </div>
+      <center>
+        <button type="submit">
+          Generate
+          <span></span>
+        </button>
+      </center>
+    </form>
+  </div>
+
   <script src="index.js"></script>
 </body>
 
