@@ -1,0 +1,26 @@
+{
+  "name": "gitart",
+  "version": "1.0.0",
+  "description": "api for gitart",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sameemul-haque/GitArt.git"
+  },
+  "keywords": [
+    "gitart"
+  ],
+  "author": "Sameemul Haque",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sameemul-haque/GitArt/issues"
+  },
+  "homepage": "https://github.com/sameemul-haque/GitArt#readme",
+  "dependencies": {
+    "octokit": "^4.0.2"
+  }
+}
