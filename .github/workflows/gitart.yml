@@ -1,0 +1,43 @@
+name: GitArt
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'GitHub Username'     
+        required: true
+      github_token:
+        description: 'GitHub Token'     
+        required: true
+      repo_name:
+        description: 'Repository Name'     
+        required: true
+      github_commit_mail:
+        description: 'GitHub commit mail'     
+        required: true
+      gitart_commit_command:
+        description: 'GitArt commit command(s)'     
+        required: true
+      
+jobs:
+  gitart:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.event.inputs.github_token }}
+    steps:
+    - name: Create repository
+      run: gh repo create ${{ github.event.inputs.username }}/${{ github.event.inputs.repo_name }} --public --description "Generated using GitArt by @sameemul-haque" --homepage "https://sameemul-haque.github.io/GitArt/"
+    - name: Add topics and edit repo settings
+      run: gh repo edit ${{ github.event.inputs.username }}/${{ github.event.inputs.repo_name }} --add-topic gitart --add-topic gitart-sameemul-haque --enable-discussions --enable-issues=false --enable-projects=false --enable-wiki=false
+    - name: Clone repository
+      run: git clone https://$GH_TOKEN@github.com/${{ github.event.inputs.username }}/${{ github.event.inputs.repo_name }}.git
+    - name: Configure git
+      run: |
+        git config --global user.email "${{ github.event.inputs.github_commit_mail }}"
+        git config --global user.name "${{ github.event.inputs.username }}"
+    - name: Commit and push
+      working-directory: ./${{ github.event.inputs.repo_name }}
+      run: |
+        ${{ github.event.inputs.gitart_commit_command }}
+        git push
+        
