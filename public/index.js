@@ -215,7 +215,10 @@ document.getElementById('generate-form').addEventListener('submit', async functi
     requestData.gitart_commit_command = gitCommitCommands.trim();
 
     try {
-      const response = await fetch('http://localhost:3000/workflow', {
+      // for deployment
+      const response = await fetch('https://gitart.vercel.app/workflow', {
+      // for local
+      // const response = await fetch('http://localhost:3000/workflow', {  
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
