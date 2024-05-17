@@ -131,13 +131,28 @@ function generateCode() {
 }
 
 function displayCode() {
-  // generateCode();
+  if (!generateCode()) {
+    return;
+  }
+  else {
+    const formBoxElement = document.querySelector(".form-box");
+    formBoxElement.style.display = "none";
+    const codeContainerElement = document.querySelector(".code-container");
+    codeContainerElement.style.display = "block";
+    codeContainerElement.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+function displayForm() {
   if (!generateCode()) {
     return;
   }
   else {
     const codeContainerElement = document.querySelector(".code-container");
-    codeContainerElement.style.display = "block";
+    codeContainerElement.style.display = "none";
+    const formBoxElement = document.querySelector(".form-box");
+    formBoxElement.style.display = "block";
+    formBoxElement.scrollIntoView({ behavior: "smooth" });
   }
 }
 
