@@ -1,3 +1,4 @@
+let gitCommitCommands = '';
 document.addEventListener("DOMContentLoaded", function () {
   const squaresContainer = document.querySelector(".squares");
   const yearSelect = document.getElementById("year-select");
@@ -108,25 +109,51 @@ function generateCode() {
   const dateList = dateforgitlist;
   if (dateList.length === 0) {
     alert("Please select at least one date from the contribution graph!");
-    return;
+    return false;
   }
   const codeContainer = document.querySelector(".code");
   codeContainer.innerHTML = "";
+  gitCommitCommands = '';
 
   dateList.forEach(date => {
+    const gitCommand = `git commit --allow-empty --date="${date}" --allow-empty-message -m ""`;
+    gitCommitCommands += gitCommand + " && ";
     const codeLine = document.createElement("p");
-    codeLine.innerHTML = `<span class="color-1"> git commit --allow-empty --date=<span class="color-2">"${date}"</span> --allow-empty-message -m "" </span><span class="color-2">&&</span>`;
+    codeLine.innerHTML = `<span class="color-1">${gitCommand}</span><span class="color-2">&&</span>`;
     codeContainer.appendChild(codeLine);
-
   });
 
   if (codeContainer.lastElementChild) {
     lastLine = codeContainer.lastElementChild;
     lastLine.removeChild(lastLine.lastElementChild);
   }
+  return true;
+}
 
-  const codeContainerElement = document.querySelector(".code-container");
-  codeContainerElement.style.display = "block";
+function displayCode() {
+  if (!generateCode()) {
+    return;
+  }
+  else {
+    const formBoxElement = document.querySelector(".form-box");
+    formBoxElement.style.display = "none";
+    const codeContainerElement = document.querySelector(".code-container");
+    codeContainerElement.style.display = "block";
+    codeContainerElement.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+function displayForm() {
+  if (!generateCode()) {
+    return;
+  }
+  else {
+    const codeContainerElement = document.querySelector(".code-container");
+    codeContainerElement.style.display = "none";
+    const formBoxElement = document.querySelector(".form-box");
+    formBoxElement.style.display = "block";
+    formBoxElement.scrollIntoView({ behavior: "smooth" });
+  }
 }
 
 function copyCode() {
@@ -171,3 +198,42 @@ async function github_join_date() {
     return null;
   }
 }
+
+document.getElementById('generate-form').addEventListener('submit', async function (event) {
+  event.preventDefault();
+
+  if (!generateCode()) {
+    return;
+  }
+  else {
+    const formData = new FormData(this);
+    const requestData = {};
+    for (const [key, value] of formData.entries()) {
+      requestData[key] = value;
+    }
+
+    requestData.gitart_commit_command = gitCommitCommands.trim();
+
+    try {
+      // for deployment
+      const response = await fetch('https://gitart.vercel.app/workflow', {
+      // for local
+      // const response = await fetch('http://localhost:3000/workflow', {  
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+      });
+      if (response.ok) {
+        alert('Workflow request sent successfully');
+      } else {
+        throw new Error('Failed to send workflow request');
+      }
+    } catch (error) {
+      console.error('Error sending workflow request:', error);
+      alert('An error occurred. Please try again later.');
+      console.log('requestData:', requestData);
+    }
+  }
+});

@@ -20,13 +20,33 @@
 
 - Select a year (choosing a year before joining GitHub is better).
 - Left click on the squares to activate and right click to deactivate them.
-- Click on the `Generate` button to get the code.
-- Create a [new](https://github.com/new) GitHub repository.
-- Clone the repository into your local machine.
-- Ensure your git username and email are [configured correctly](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account).
-- Copy the generated code into your terminal.
-- Push the changes to the remote repository.
+- Click on one of the `Generate` buttons and follow the rest of the instructions.
 
+<details>
+    <summary>Generate using GitHub Actions</summary>
+<br>
+
+* Enter the required details in the following form. This will make a request to the [GitArt API](https://github.com/sameemul-haque/gitart-api) and create a GitHub action. 
+* You need to create a GitHub token with full repo access [here.](https://github.com/settings/tokens/new)
+* Ensure that the repository name does not already exist.
+* Your GitHub commit email should be the same as the one you use for your GitHub account.
+* After submitting the details, you can check the progress of the action [here.](https://github.com/sameemul-haque/gitart-api/actions)
+
+<br>
+</details>
+
+<details>
+    <summary>Generate git commit commands</summary>
+<br>
+
+* Create a [new](https://github.com/new) GitHub repository.
+* Clone the repository into your local machine.
+* Ensure your git username and email are [configured correctly](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account).
+* Copy the generated code into your terminal.
+* Push the changes to the remote repository. 
+
+<br>
+</details>
 
 ## Features
 
