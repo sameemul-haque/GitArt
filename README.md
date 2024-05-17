@@ -20,12 +20,13 @@
 
 - Select a year (choosing a year before joining GitHub is better).
 - Left click on the squares to activate and right click to deactivate them.
-- Click on the `Generate` button to get the code.
+<!-- instructions needs to be updated with new method -->
+<!-- - Click on the `Generate` button to get the code.
 - Create a [new](https://github.com/new) GitHub repository.
 - Clone the repository into your local machine.
 - Ensure your git username and email are [configured correctly](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account).
 - Copy the generated code into your terminal.
-- Push the changes to the remote repository.
+- Push the changes to the remote repository. -->
 
 
 ## Features

@@ -14,7 +14,7 @@ const octokit = new Octokit({
 
 app.use(express.json());
 app.use(cors()); 
-app.post('/dispatch', async (req, res) => {
+app.post('/workflow', async (req, res) => {
     
     const { username, github_token, repo_name, github_commit_mail, gitart_commit_command } = req.body;
 
@@ -35,9 +35,9 @@ app.post('/dispatch', async (req, res) => {
                 'X-GitHub-Api-Version': '2022-11-28'
             }
         });
-        res.status(200).send('Dispatch request sent successfully');
+        res.status(200).send('Workflow request sent successfully');
     } catch (error) {
-        console.error('Error sending dispatch request:', error);
+        console.error('Error sending workflow request:', error);
         res.status(500).send('Internal server error');
     }
 });

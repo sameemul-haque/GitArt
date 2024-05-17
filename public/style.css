@@ -125,6 +125,7 @@ h2 {
 }
 
 .form-box {
+  display: none;
   margin: auto;
   max-width: 750px;
   padding: 40px;
@@ -233,16 +234,22 @@ h2 {
   justify-content: center;
 }
 
+.generate-btns{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
 .generate-btn {
-  display: block;
-  margin-left: auto;
+  width: 14rem;
   padding: 8px;
   font-weight: 600;
   border: #0e4429 1px solid;
   border-radius: 5px;
   background-color: #39d353;
-  margin-right: 3.5rem;
-  margin-bottom: 3.5rem;
   cursor: pointer;
   transition: all 0.2s;
 }

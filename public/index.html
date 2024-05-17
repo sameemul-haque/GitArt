@@ -50,6 +50,7 @@
     contribution graph by generating Git commit commands. With this tool,
     users can customize their contribution graph to display their name,
     messages, symbols, logos, or any other desired patterns.
+
   <div class="row-btns">
     <a href="https://buymeacoffee.com/sameemul_haque" target="_blank" class="underline-text" id="buymeacoffee">
       Buy Me a Coffee
@@ -61,6 +62,7 @@
       Examples here
     </span>
   </div>
+
   </p>
 
   <div id="instructions-gitart">
@@ -69,16 +71,19 @@
       <li>Select a year (choosing a year before <span class="underline-text" onclick="github_join_date()">joining
           GitHub</span> is better).</li>
       <li>Left click on the squares to activate and right click to deactivate them. </li>
-      <li>Click on the <b>Generate</b> button to get the code.</li>
+      <!-- instructions needs to be updated with new method -->
+
+      <!-- <li>Click on the <b>Generate</b> button to get the code.</li>
       <li>Create a <a href="https://github.com/new">new</a> GitHub repository.</li>
       <li>Clone the repository into your local machine.</li>
       <li>Ensure your git username and email are <a
           href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account">configured
           correctly</a>.</li>
       <li>Copy the generated code into your terminal.</li>
-      <li>Push the changes to the remote repository.</li>
+      <li>Push the changes to the remote repository.</li> -->
     </ul>
   </div>
+
   <div class="graph-container">
     <div class="graph">
       <select size="3" id="year-select"></select>
@@ -110,9 +115,13 @@
       </ul>
     </div>
   </div>
-  <button class="generate-btn" onclick="null">Generate using GitHub Actions</button>
-  <!-- <button class="generate-btn" onclick="null">Generate Shell Script</button> -->
-  <button class="generate-btn" onclick="displayCode()">Generate Manually</button>
+
+  <div class="generate-btns">
+    <button class="generate-btn" onclick="null">Generate using GitHub Actions</button>
+    <button class="generate-btn" onclick="null">Generate shell script</button>
+    <button class="generate-btn" onclick="displayCode()">Generate git commit commands</button>
+  </div>
+
   <div class="code-container">
     <div class="code-editor">
       <div class="code-header"><svg onclick="copyCode()" xmlns="http://www.w3.org/2000/svg" fill="#26a641"
@@ -129,6 +138,7 @@
       </div>
     </div>
   </div>
+
   <div id="examples">
     <span class="close-btn">
       <svg height="26" width="26" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" xml:space="preserve"
@@ -146,6 +156,7 @@
       <!-- <img src="assets/examples/your_image.png" alt="your image" class="example-pic"> -->
     </div>
   </div>
+
   <div class="form-box">
     <form id="generate-form">
       <div class="user-box">
@@ -154,11 +165,11 @@
       </div>
       <div class="user-box">
         <input type="password" name="github_token" required>
-        <label>GitHub token with repo access</label>
+        <label>GitHub token with repo access (https://github.com/settings/tokens/new)</label>
       </div>
       <div class="user-box">
         <input type="text" name="repo_name" required>
-        <label>Repository name</label>
+        <label>Repository name (make sure it does not already exist)</label>
       </div>
       <div class="user-box">
         <input type="email" name="github_commit_mail" required>
@@ -174,6 +185,7 @@
   </div>
 
   <script src="index.js"></script>
+
 </body>
 
 </html>

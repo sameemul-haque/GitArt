@@ -200,7 +200,7 @@ document.getElementById('generate-form').addEventListener('submit', async functi
     requestData.gitart_commit_command = gitCommitCommands.trim();
 
     try {
-      const response = await fetch('http://localhost:3000/dispatch', {
+      const response = await fetch('http://localhost:3000/workflow', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -208,12 +208,12 @@ document.getElementById('generate-form').addEventListener('submit', async functi
         body: JSON.stringify(requestData)
       });
       if (response.ok) {
-        alert('Dispatch request sent successfully');
+        alert('Workflow request sent successfully');
       } else {
-        throw new Error('Failed to send dispatch request');
+        throw new Error('Failed to send workflow request');
       }
     } catch (error) {
-      console.error('Error sending dispatch request:', error);
+      console.error('Error sending workflow request:', error);
       alert('An error occurred. Please try again later.');
       console.log('requestData:', requestData);
     }
