@@ -5,7 +5,7 @@
 </h1>
 
 <h6 align="center">
-	<a href="https://sameemul-haque.github.io/GitArt/"><img src="https://img.shields.io/badge/website-238636?style=for-the-badge"/></a>
+	<a href="https://gitart.pages.dev/"><img src="https://img.shields.io/badge/website-238636?style=for-the-badge"/></a>
 	˙
 	<a href="https://buymeacoffee.com/sameemul_haque"><img src="https://img.shields.io/badge/Buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=1B1B1B"/></a>
  	˙
@@ -27,7 +27,7 @@
 <br>
 
 * Enter the required details in the following form. This will make a request to the [GitArt API](https://github.com/sameemul-haque/gitart-api) and create a GitHub action. 
-* You need to create a GitHub token with full repo access [here.](https://github.com/settings/tokens/new)
+* You need to create a GitHub token with full repo access [here](https://github.com/settings/tokens/new). You can delete the token after the action is completed.
 * Ensure that the repository name does not already exist.
 * Your GitHub commit email should be the same as the one you use for your GitHub account.
 * After submitting the details, you can check the progress of the action [here.](https://github.com/sameemul-haque/gitart-api/actions)
@@ -74,6 +74,7 @@
 ## Acknowledgements
 
 - [Git Logo](https://git-scm.com/downloads/logos)
+- [GitArt API](https://github.com/sameemul-haque/gitart-api)
 - [GitHub Contributions](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)
 
 ---
