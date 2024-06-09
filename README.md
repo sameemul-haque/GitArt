@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img src="/public/assets/logo.svg" alt="Logo" width="100" height="100">
+	<img src="public/assets/logo.svg" alt="Logo" width="100" height="100">
   <br/>
 	GitArt
 </h1>
@@ -79,4 +79,4 @@
 
 ---
 
-![preview](/public/banner.png "preview")
+![preview](public/banner.png "preview")
