@@ -228,6 +228,16 @@ async function github_join_date() {
   }
 }
 
+function openExamples(){
+  document.getElementById('examples').style.display = 'block'
+  document.querySelector('body').style.overflow = 'hidden'
+}
+
+function closeExamples(){
+  document.getElementById('examples').style.display = 'none'
+  document.querySelector('body').style.overflow = 'auto'
+}
+
 document.getElementById('generate-form').addEventListener('submit', async function (event) {
   event.preventDefault();
 

@@ -93,6 +93,7 @@ h2 {
   height: 100%;
   padding-bottom: 100%;
   background-color: #0d1117;
+  overflow: scroll;
   z-index: 999;
 }
 
