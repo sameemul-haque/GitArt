@@ -22,7 +22,7 @@
 - Left click on the squares to activate and right click to deactivate them.
 - Click on one of the `Generate` buttons and follow the rest of the instructions.
 
-<details>
+<!-- <details>
     <summary>Generate using GitHub Actions</summary>
 <br>
 
@@ -30,7 +30,7 @@
 * You need to create a GitHub token with full repo access [here](https://github.com/settings/tokens/new). You can delete the token after the action is completed.
 * Ensure that the repository name does not already exist.
 * Your GitHub commit email should be the same as the one you use for your GitHub account.
-* After submitting the details, you can check the progress of the action [here.](https://github.com/sameemul-haque/gitart-api/actions)
+* After submitting the details, you can check the progress of the action [here.](https://github.com/sameemul-haque/gitart-api/actions) -->
 
 <br>
 </details>
@@ -74,7 +74,7 @@
 ## Acknowledgements
 
 - [Git Logo](https://git-scm.com/downloads/logos)
-- [GitArt API](https://github.com/sameemul-haque/gitart-api)
+<!-- - [GitArt API](https://github.com/sameemul-haque/gitart-api) -->
 - [GitHub Contributions](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)
 
 ---
