@@ -168,15 +168,7 @@ function displayCode() {
 
 function copyCode() {
   const codeContainer = document.querySelector(".code");
-  const codeValue = codeContainer.innerText;
-  const codeText = document.createElement('textarea');
-  codeText.value = codeValue;
-  document.body.appendChild(codeText);
-
-  codeText.select();
-  codeText.setSelectionRange(0, 99999); // For mobile devices
-  navigator.clipboard.writeText(codeText.value);
-  document.body.removeChild(codeText);
+  navigator.clipboard.writeText(codeContainer.innerText);
 
   const codeHeader = document.querySelector(".code-header");
   const codeIcon = codeHeader.querySelector(".code-icon");
