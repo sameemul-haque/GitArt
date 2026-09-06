@@ -221,6 +221,14 @@ async function github_join_date() {
 
   try {
     const response = await fetch(`https://api.github.com/users/${username}`);
+    if (!response.ok) {
+      alert(
+        response.status === 404
+          ? "No GitHub user found with that username."
+          : "Could not fetch the data. Please try again later."
+      );
+      return;
+    }
     const userData = await response.json();
     const options = { year: "numeric", month: "long", day: "numeric" };
     const joinDate = new Date(userData.created_at).toLocaleDateString("en", options);
