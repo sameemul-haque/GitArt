@@ -131,7 +131,6 @@
 
   <div class="generate-btns">
     <button class="generate-btn" onclick="displayCode()">Generate git commit commands</button>
-    <!-- <button class="generate-btn" onclick="displayForm()">Generate using GitHub Actions</button> -->
     <!-- <button class="generate-btn" onclick="null">Generate shell script</button> -->
   </div>
 
@@ -184,50 +183,6 @@
       <img src="assets/examples/i_use_arch_btw.png" alt="i use arch btw" class="example-pic">
       <!-- <img src="assets/examples/your_image.png" alt="your image" class="example-pic"> -->
     </div>
-  </div>
-
-  <div class="form-box">
-    <div id="instructions-gitart">
-      <ul>
-        <li>Enter the required details in the following form. This will make a request to the
-          <a href="https://github.com/sameemul-haque/gitart-api"> GitArt API</a> and create a
-          GitHub action.
-        </li>
-        <li>You need to create a GitHub token with full repo access
-          <a href="https://github.com/settings/tokens/new">here.</a>
-          You can delete the token after the action is completed.
-        </li>
-        <li>Ensure that the repository name does not already exist.</li>
-        <li>Your GitHub commit email should be the same as the one you use for your GitHub account.</li>
-        <li>After submitting the details, you can check the progress of the action
-          <a href="https://github.com/sameemul-haque/gitart-api/actions">here.</a>
-        </li>
-      </ul>
-    </div>
-    <form id="generate-form">
-      <div class="user-box">
-        <input type="text" name="username" required>
-        <label>GitHub username</label>
-      </div>
-      <div class="user-box">
-        <input type="text" name="github_token" required>
-        <label>GitHub token with repo access </label>
-      </div>
-      <div class="user-box">
-        <input type="text" name="repo_name" required>
-        <label>Repository name </label>
-      </div>
-      <div class="user-box">
-        <input type="email" name="github_commit_mail" required>
-        <label>GitHub commit mail</label>
-      </div>
-      <center>
-        <button type="submit">
-          Generate
-          <span></span>
-        </button>
-      </center>
-    </form>
   </div>
 
   <script src="index.js"></script>

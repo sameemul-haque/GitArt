@@ -1,4 +1,3 @@
-let gitCommitCommands = '';
 let dateforgitlist = [];
 document.addEventListener("DOMContentLoaded", function () {
   const squaresContainer = document.querySelector(".squares");
@@ -113,11 +112,8 @@ function generateCode() {
   }
   const codeContainer = document.querySelector(".code");
   codeContainer.innerHTML = "";
-  gitCommitCommands = '';
-
   dateList.forEach(date => {
     const gitCommand = `git commit --allow-empty --date="${date}" --allow-empty-message -m ""`;
-    gitCommitCommands += gitCommand + " && ";
     const codeLine = document.createElement("p");
     codeLine.innerHTML = `<span class="color-1">${gitCommand}</span><span class="color-2">&&</span>`;
     codeContainer.appendChild(codeLine);
@@ -164,24 +160,9 @@ function displayCode() {
     return;
   }
   else {
-    const formBoxElement = document.querySelector(".form-box");
-    formBoxElement.style.display = "none";
     const codeContainerElement = document.querySelector(".code-container");
     codeContainerElement.style.display = "block";
     codeContainerElement.scrollIntoView({ behavior: "smooth" });
-  }
-}
-
-function displayForm() {
-  if (!generateCode()) {
-    return;
-  }
-  else {
-    const codeContainerElement = document.querySelector(".code-container");
-    codeContainerElement.style.display = "none";
-    const formBoxElement = document.querySelector(".form-box");
-    formBoxElement.style.display = "block";
-    formBoxElement.scrollIntoView({ behavior: "smooth" });
   }
 }
 
@@ -246,41 +227,3 @@ function closeExamples(){
   document.getElementById('examples').style.display = 'none'
   document.querySelector('body').style.overflow = 'auto'
 }
-
-document.getElementById('generate-form').addEventListener('submit', async function (event) {
-  event.preventDefault();
-
-  if (!generateCode()) {
-    return;
-  }
-  else {
-    const formData = new FormData(this);
-    const requestData = {};
-    for (const [key, value] of formData.entries()) {
-      requestData[key] = value;
-    }
-
-    requestData.gitart_commit_command = gitCommitCommands.trim();
-
-    try {
-      // for deployment
-      const response = await fetch('https://gitart.vercel.app/workflow', {
-      // for local
-      // const response = await fetch('http://localhost:3000/workflow', {  
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(requestData)
-      });
-      if (response.ok) {
-        alert('Workflow request sent successfully');
-      } else {
-        throw new Error('Failed to send workflow request');
-      }
-    } catch (error) {
-      console.error('Error sending workflow request:', error);
-      alert('An error occurred. Please try again later.');
-    }
-  }
-});
