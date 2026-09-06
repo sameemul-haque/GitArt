@@ -50,11 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
           const currentLevel = parseInt(square.getAttribute("data-level"));
           const options = { year: "numeric", month: "short", day: "numeric" };
           dateforgit = parseDate(square.getAttribute("data-date")).toLocaleDateString("en", options);
-          dateforgitlist.push(dateforgit);
+          if (currentLevel < 4) {
+            dateforgitlist.push(dateforgit);
+            increaseLevel(square, currentLevel);
+          }
           console.log("dateforgit:", dateforgit);
           console.log("dateforgitlist: ", dateforgitlist);
-
-          increaseLevel(square, currentLevel);
         });
 
         square.addEventListener("contextmenu", function (event) {
@@ -62,10 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
           const currentLevel = parseInt(square.getAttribute("data-level"));
           const options = { year: "numeric", month: "short", day: "numeric" };
           dateforgit = parseDate(square.getAttribute("data-date")).toLocaleDateString("en", options);
-          decreaseLevel(square, currentLevel);
-          const index = dateforgitlist.indexOf(dateforgit);
-          if (index > -1) {
-            dateforgitlist.splice(index, 1);
+          if (currentLevel > 0) {
+            decreaseLevel(square, currentLevel);
+            const index = dateforgitlist.indexOf(dateforgit);
+            if (index > -1) {
+              dateforgitlist.splice(index, 1);
+            }
           }
           console.log("dateforgit:", dateforgit);
           console.log("dateforgitlist: ", dateforgitlist);
