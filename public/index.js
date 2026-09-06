@@ -220,7 +220,9 @@ async function github_join_date() {
   }
 
   try {
-    const response = await fetch(`https://api.github.com/users/${username}`);
+    const response = await fetch(
+      `https://api.github.com/users/${encodeURIComponent(username)}`
+    );
     if (!response.ok) {
       alert(
         response.status === 404
