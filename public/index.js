@@ -132,7 +132,7 @@ function generateCode() {
 
 function generateShellScript() {
   const codeContainer = document.querySelector(".code");
-  const codeValue = codeContainer.innerText;
+  const codeValue = "#!/bin/sh\n\n" + codeContainer.innerText + "\n";
 
   var element = document.createElement("a");
   element.setAttribute(
