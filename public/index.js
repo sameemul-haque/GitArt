@@ -1,4 +1,5 @@
 let gitCommitCommands = '';
+let dateforgitlist = [];
 document.addEventListener("DOMContentLoaded", function () {
   const squaresContainer = document.querySelector(".squares");
   const yearSelect = document.getElementById("year-select");
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function generateCalendar(year) {
     squaresContainer.innerHTML = "";
+    dateforgitlist = [];
     const endDate = new Date(year, 11, 31);
     const startingDay = new Date(year, 0, 1).getDay();
     const currentDate = new Date(year, 0, 1 - startingDay);
@@ -43,13 +45,12 @@ document.addEventListener("DOMContentLoaded", function () {
         square.classList.add("previous-year");
       }
 
-      dateforgitlist = [];
       squaresContainer.appendChild(square);
       if (!square.classList.contains("previous-year")) {
         square.addEventListener("click", function () {
           const currentLevel = parseInt(square.getAttribute("data-level"));
           const options = { year: "numeric", month: "short", day: "numeric" };
-          dateforgit = parseDate(square.getAttribute("data-date")).toLocaleDateString("en", options);
+          const dateforgit = parseDate(square.getAttribute("data-date")).toLocaleDateString("en", options);
           if (currentLevel < 4) {
             dateforgitlist.push(dateforgit);
             increaseLevel(square, currentLevel);
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
           event.preventDefault();
           const currentLevel = parseInt(square.getAttribute("data-level"));
           const options = { year: "numeric", month: "short", day: "numeric" };
-          dateforgit = parseDate(square.getAttribute("data-date")).toLocaleDateString("en", options);
+          const dateforgit = parseDate(square.getAttribute("data-date")).toLocaleDateString("en", options);
           if (currentLevel > 0) {
             decreaseLevel(square, currentLevel);
             const index = dateforgitlist.indexOf(dateforgit);
@@ -127,7 +128,7 @@ function generateCode() {
   });
 
   if (codeContainer.lastElementChild) {
-    lastLine = codeContainer.lastElementChild;
+    const lastLine = codeContainer.lastElementChild;
     lastLine.removeChild(lastLine.lastElementChild);
   }
   return true;
