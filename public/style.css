@@ -46,14 +46,14 @@ h2 {
   margin-right: auto;
 }
 
-#instructions-gitart {
+.instructions-gitart {
   font-size: 0.9rem;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
 
-#instructions-gitart a {
+.instructions-gitart a {
   color: #39d353;
 }
 
