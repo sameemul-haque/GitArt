@@ -147,16 +147,20 @@
     </div>
     <div class="code-editor">
       <div class="code-header">
-        <svg onclick="copyCode()" class="code-icon" width="24" height="24" viewBox="0 0 24 24" fill="#26a641"
+        <button type="button" class="icon-btn" onclick="copyCode()" aria-label="Copy commands">
+        <svg class="code-icon" width="24" height="24" viewBox="0 0 24 24" fill="#26a641" aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M17.482 4.272V5.53h2.108v.004a2.48 2.48 0 0 1 1.703.667c.432.408.702.973.704 1.598H22v11.93h-.003a2.2 2.2 0 0 1-.709 1.605 2.48 2.48 0 0 1-1.696.663V22H8.928v-.003a2.48 2.48 0 0 1-1.704-.668 2.2 2.2 0 0 1-.703-1.598h-.003v-2.674H4.41v-.003a2.48 2.48 0 0 1-1.703-.668 2.2 2.2 0 0 1-.704-1.598H2V4.271h.003a2.2 2.2 0 0 1 .709-1.605 2.48 2.48 0 0 1 1.696-.663V2h10.665v.003a2.48 2.48 0 0 1 1.703.668c.432.408.701.973.703 1.598h.003zM15.655 5.53V4.27h.003a.53.53 0 0 0-.174-.386.6.6 0 0 0-.41-.163v.004H4.41V3.72a.6.6 0 0 0-.41.165.54.54 0 0 0-.172.386h.003v10.517h-.003c0 .148.067.285.174.386a.6.6 0 0 0 .41.163v-.004h2.107V7.801h.004a2.2 2.2 0 0 1 .708-1.605 2.48 2.48 0 0 1 1.697-.662V5.53zm4.516 14.198V7.799h.003A.53.53 0 0 0 20 7.413a.6.6 0 0 0-.41-.162v.003H8.926V7.25a.6.6 0 0 0-.41.164.54.54 0 0 0-.172.386h.003v11.93h-.003c0 .148.067.285.174.386.105.1.252.163.41.163v-.004h10.664v.004a.6.6 0 0 0 .41-.165.53.53 0 0 0 .172-.385z" />
         </svg>
-        <svg onclick="generateShellScript()" class="download-icon" width="24" height="24" viewBox="0 0 24 24"
+        </button>
+        <button type="button" class="icon-btn" onclick="generateShellScript()" aria-label="Download shell script">
+        <svg class="download-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
           fill="#26a641" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M7 17h10v-2H7zm5-3 4-4-1.4-1.4-1.6 1.55V6h-2v4.15L9.4 8.6 8 10zm0 8a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175A9.7 9.7 0 0 1 2 12q0-2.075.788-3.9a10.1 10.1 0 0 1 2.137-3.175q1.35-1.35 3.175-2.137A9.7 9.7 0 0 1 12 2q2.075 0 3.9.788a10.1 10.1 0 0 1 3.175 2.137q1.35 1.35 2.137 3.175A9.7 9.7 0 0 1 22 12a9.7 9.7 0 0 1-.788 3.9 10.1 10.1 0 0 1-2.137 3.175q-1.35 1.35-3.175 2.137A9.7 9.7 0 0 1 12 22m0-2q3.35 0 5.675-2.325T20 12t-2.325-5.675T12 4 6.325 6.325 4 12t2.325 5.675T12 20" />
         </svg>
+        </button>
       </div>
       <div class="editor-content">
         <code class="code">
@@ -167,13 +171,13 @@
   </div>
 
   <div id="examples">
-    <span class="close-btn">
+    <button type="button" class="close-btn" onclick="closeExamples()" aria-label="Close examples">
       <svg height="26" width="26" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" xml:space="preserve"
-        onclick="closeExamples()" class="close-btn-svg">
+        aria-hidden="true" class="close-btn-svg">
         <path style="fill:#fafafc"
           d="M21.125 0H4.875A4.874 4.874 0 0 0 0 4.875v16.25A4.874 4.874 0 0 0 4.875 26h16.25A4.874 4.874 0 0 0 26 21.125V4.875A4.874 4.874 0 0 0 21.125 0M18.78 17.394l-1.388 1.387a.654.654 0 0 1-.924 0L13 15.313 9.533 18.78a.653.653 0 0 1-.925-.002L7.22 17.394a.66.66 0 0 1 0-.926l3.468-3.467-3.467-3.467a.657.657 0 0 1 0-.925l1.388-1.388a.65.65 0 0 1 .925 0L13 10.689l3.468-3.468a.65.65 0 0 1 .924 0l1.388 1.386a.66.66 0 0 1 .001.927l-3.468 3.467 3.468 3.467a.66.66 0 0 1-.001.926" />
       </svg>
-    </span>
+    </button>
     <h3>Examples</h3>
     <div class="example-pic-container">
       <img src="assets/examples/hello.png" alt="hello :)" class="example-pic">

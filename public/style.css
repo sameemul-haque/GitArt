@@ -125,6 +125,10 @@ button.underline-text {
   position: fixed;
   top: 1rem;
   right: 1rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .close-btn-svg {
@@ -276,16 +280,22 @@ button.underline-text {
   margin: 10px;
 }
 
-.code-icon, .download-icon {
+.icon-btn {
+  display: inline-flex;
   padding: 5px;
-  width: 20px;
+  border: none;
+  border-radius: 5px;
+  background: none;
+  cursor: pointer;
   transition: .2s ease;
 }
 
-.code-icon:hover, .download-icon:hover {
-  cursor: pointer;
-  border-radius: 5px;
+.icon-btn:hover {
   background-color: #0d1117;
+}
+
+.code-icon, .download-icon {
+  width: 20px;
 }
 
 .editor-content {
