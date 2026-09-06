@@ -16,30 +16,30 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   generateYearOptions();
 
+  function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  function parseDate(value) {
+    const [year, month, day] = value.split("-").map(Number);
+    return new Date(year, month - 1, day);
+  }
+
   function generateCalendar(year) {
     squaresContainer.innerHTML = "";
-    const startDate = new Date(year, 0, 1);
     const endDate = new Date(year, 11, 31);
-    const millisecondsInDay = 24 * 60 * 60 * 1000;
-
-    const startingDay = new Date(startDate.getFullYear(), 0, 1).getDay();
-
-    let currentDate = startDate;
-    currentDate = new Date(
-      currentDate.getTime() - startingDay * millisecondsInDay
-    );
+    const startingDay = new Date(year, 0, 1).getDay();
+    const currentDate = new Date(year, 0, 1 - startingDay);
 
     while (currentDate <= endDate) {
       const square = document.createElement("li");
       square.setAttribute("data-level", "0");
-      square.setAttribute(
-        "data-date",
-        new Date(currentDate.getTime() + 1 * millisecondsInDay)
-          .toISOString()
-          .split("T")[0]
-      );
+      square.setAttribute("data-date", formatDate(currentDate));
 
-      if (currentDate.getFullYear() < startDate.getFullYear()) {
+      if (currentDate.getFullYear() < year) {
         square.classList.add("previous-year");
       }
 
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         square.addEventListener("click", function () {
           const currentLevel = parseInt(square.getAttribute("data-level"));
           const options = { year: "numeric", month: "short", day: "numeric" };
-          dateforgit = new Date(square.getAttribute("data-date")).toLocaleDateString("en", options);
+          dateforgit = parseDate(square.getAttribute("data-date")).toLocaleDateString("en", options);
           dateforgitlist.push(dateforgit);
           console.log("dateforgit:", dateforgit);
           console.log("dateforgitlist: ", dateforgitlist);
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
           event.preventDefault();
           const currentLevel = parseInt(square.getAttribute("data-level"));
           const options = { year: "numeric", month: "short", day: "numeric" };
-          dateforgit = new Date(square.getAttribute("data-date")).toLocaleDateString("en", options);
+          dateforgit = parseDate(square.getAttribute("data-date")).toLocaleDateString("en", options);
           decreaseLevel(square, currentLevel);
           const index = dateforgitlist.indexOf(dateforgit);
           if (index > -1) {
@@ -76,12 +76,12 @@ document.addEventListener("DOMContentLoaded", function () {
           if (target && target.matches("li[data-date]")) {
             const date = target.getAttribute("data-date");
             const options = { year: "numeric", month: "long", day: "numeric" };
-            target.title = new Date(date).toLocaleDateString("en", options);
+            target.title = parseDate(date).toLocaleDateString("en", options);
           }
         });
       }
 
-      currentDate = new Date(currentDate.getTime() + millisecondsInDay);
+      currentDate.setDate(currentDate.getDate() + 1);
     }
   }
 
