@@ -168,8 +168,38 @@ function displayCode() {
 
 function copyCode() {
   const codeContainer = document.querySelector(".code");
-  navigator.clipboard.writeText(codeContainer.innerText);
+  const codeValue = codeContainer.innerText;
 
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(codeValue).then(showCopied, function () {
+      fallbackCopy(codeValue);
+    });
+  } else {
+    fallbackCopy(codeValue);
+  }
+}
+
+function fallbackCopy(codeValue) {
+  const codeText = document.createElement("textarea");
+  codeText.value = codeValue;
+  codeText.setAttribute("readonly", "");
+  codeText.style.position = "fixed";
+  codeText.style.top = "-1000px";
+  document.body.appendChild(codeText);
+
+  codeText.select();
+  codeText.setSelectionRange(0, 99999); // For mobile devices
+  const copied = document.execCommand("copy");
+  document.body.removeChild(codeText);
+
+  if (copied) {
+    showCopied();
+  } else {
+    alert("Could not copy the commands. Please copy them manually.");
+  }
+}
+
+function showCopied() {
   const codeHeader = document.querySelector(".code-header");
   const codeIcon = codeHeader.querySelector(".code-icon");
   codeIcon.setAttribute("fill", "#26a641");
@@ -179,7 +209,6 @@ function copyCode() {
     codeIcon.setAttribute("fill", "#26a641");
     codeIcon.innerHTML = `<path fill-rule="evenodd" clip-rule="evenodd" d="M17.482 4.272V5.53h2.108v.004a2.48 2.48 0 0 1 1.703.667c.432.408.702.973.704 1.598H22v11.93h-.003a2.2 2.2 0 0 1-.709 1.605 2.48 2.48 0 0 1-1.696.663V22H8.928v-.003a2.48 2.48 0 0 1-1.704-.668 2.2 2.2 0 0 1-.703-1.598h-.003v-2.674H4.41v-.003a2.48 2.48 0 0 1-1.703-.668 2.2 2.2 0 0 1-.704-1.598H2V4.271h.003a2.2 2.2 0 0 1 .709-1.605 2.48 2.48 0 0 1 1.696-.663V2h10.665v.003a2.48 2.48 0 0 1 1.703.668c.432.408.701.973.703 1.598h.003zM15.655 5.53V4.27h.003a.53.53 0 0 0-.174-.386.6.6 0 0 0-.41-.163v.004H4.41V3.72a.6.6 0 0 0-.41.165.54.54 0 0 0-.172.386h.003v10.517h-.003c0 .148.067.285.174.386a.6.6 0 0 0 .41.163v-.004h2.107V7.801h.004a2.2 2.2 0 0 1 .708-1.605 2.48 2.48 0 0 1 1.697-.662V5.53zm4.516 14.198V7.799h.003A.53.53 0 0 0 20 7.413a.6.6 0 0 0-.41-.162v.003H8.926V7.25a.6.6 0 0 0-.41.164.54.54 0 0 0-.172.386h.003v11.93h-.003c0 .148.067.285.174.386.105.1.252.163.41.163v-.004h10.664v.004a.6.6 0 0 0 .41-.165.53.53 0 0 0 .172-.385z" />`;
   }, 3000);
-
 }
 
 async function github_join_date() {
