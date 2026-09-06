@@ -55,8 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
             dateforgitlist.push(dateforgit);
             increaseLevel(square, currentLevel);
           }
-          console.log("dateforgit:", dateforgit);
-          console.log("dateforgitlist: ", dateforgitlist);
         });
 
         square.addEventListener("contextmenu", function (event) {
@@ -71,8 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
               dateforgitlist.splice(index, 1);
             }
           }
-          console.log("dateforgit:", dateforgit);
-          console.log("dateforgitlist: ", dateforgitlist);
         });
 
         square.addEventListener("mouseover", function (event) {
@@ -216,7 +212,6 @@ function copyCode() {
 async function github_join_date() {
   const username = prompt("Enter your GitHub username:");
   if (!username) {
-    console.log("No username entered");
     return;
   }
 
@@ -286,7 +281,6 @@ document.getElementById('generate-form').addEventListener('submit', async functi
     } catch (error) {
       console.error('Error sending workflow request:', error);
       alert('An error occurred. Please try again later.');
-      console.log('requestData:', requestData);
     }
   }
 });
