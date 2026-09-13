@@ -88,6 +88,7 @@ public/
 │   ├── graph.css       contribution graph and year picker
 │   ├── generate.css    generate button
 │   ├── code-editor.css generated commands panel
+│   ├── faq.css         faq section
 │   └── examples.css    examples page
 ├── js/                 ES modules, loaded from main.js
 │   ├── main.js         wires up the page
@@ -98,7 +99,10 @@ public/
 │   ├── commands.js     builds, copies and downloads the git commands
 │   ├── github.js       GitHub join date lookup
 │   └── icons.js        svg icon paths
-└── assets/             logo and example images
+├── assets/             logo and example images
+├── sitemap.xml
+├── robots.txt
+└── llms.txt            site summary for ai crawlers
 ```
 
 ## Acknowledgements
