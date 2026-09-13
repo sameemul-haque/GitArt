@@ -11,6 +11,12 @@ export function getYear() {
   return yearSelect.value;
 }
 
+export function clearSquares() {
+  for (const square of squaresContainer.children) {
+    square.setAttribute("data-level", "0");
+  }
+}
+
 export function initCalendar(onYearChange) {
   generateYearOptions();
   generateCalendar(parseInt(yearSelect.value));

@@ -31,6 +31,25 @@
   gap: 1rem;
 }
 
+.clear-btn {
+  padding: 6px 12px;
+  color: #fafbfc;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.clear-btn:hover,
+.clear-btn:focus-visible {
+  outline: none;
+  color: #f85149;
+  border-color: #f85149;
+}
+
 .year-picker {
   display: inline-flex;
   align-items: center;

@@ -1,5 +1,5 @@
 import { FONT, GLYPH_GAP, TEXT_ROWS } from "./font.js";
-import { getSquares, getYear } from "./calendar.js";
+import { clearSquares, getSquares, getYear } from "./calendar.js";
 
 const textInput = document.getElementById("text-input");
 const textClear = document.getElementById("text-clear");
@@ -27,6 +27,13 @@ export function initTextDraw() {
 
 export function redrawText() {
   textSquares = new Map();
+  applyText();
+}
+
+export function clearGraph() {
+  textInput.value = "";
+  textSquares = new Map();
+  clearSquares();
   applyText();
 }
 
