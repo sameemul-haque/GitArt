@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
   generateCalendar(parseInt(yearSelect.value));
   yearSelect.addEventListener("change", function () {
     generateCalendar(parseInt(yearSelect.value));
+    textSquares = new Map();
+    applyText();
   });
 
   function increaseLevel(square, currentLevel) {
