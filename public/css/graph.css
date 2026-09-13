@@ -1,0 +1,94 @@
+.months {
+  grid-area: months;
+}
+
+.days {
+  grid-area: days;
+}
+
+.squares {
+  grid-area: squares;
+}
+
+.graph-container {
+  display: flex;
+  justify-content: center;
+}
+
+.graph {
+  display: inline-grid;
+  grid-template-areas:
+    "empty months"
+    "days squares";
+  grid-template-columns: auto 1fr;
+  grid-gap: 10px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  overflow-x: auto;
+  padding: 20px;
+  border: 1px #30363d solid;
+  border-radius: 6px;
+  margin: 20px;
+}
+
+.months {
+  display: flex;
+  justify-content: space-around;
+}
+
+.days,
+.squares {
+  display: grid;
+  grid-gap: var(--square-gap);
+  grid-template-rows: repeat(7, var(--square-size));
+}
+
+.squares {
+  grid-auto-flow: column;
+  grid-auto-columns: var(--square-size);
+}
+
+.graph-container li {
+  list-style-type: none;
+}
+
+.days li:nth-child(odd) {
+  visibility: hidden;
+}
+
+.squares li {
+  background-color: #161b22;
+  border-radius: 2px;
+}
+
+.squares li[data-level="1"] {
+  background-color: #0e4429;
+}
+
+.squares li[data-level="2"] {
+  background-color: #006d32;
+}
+
+.squares li[data-level="3"] {
+  background-color: #26a641;
+}
+
+.squares li[data-level="4"] {
+  background-color: #39d353;
+}
+
+.previous-year {
+  opacity: 0;
+}
+
+#year-select {
+  color: #fafbfc;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+}
+
+#year-select option:checked {
+  background-color: #39d353;
+  width: 100%;
+}

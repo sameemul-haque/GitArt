@@ -1,0 +1,34 @@
+:root {
+  --square-size: 15px;
+  --square-gap: 5px;
+  --week-width: calc(var(--square-size) + var(--square-gap));
+}
+
+body {
+  color: #fafbfc;
+  background-color: #0d1117;
+  font-style: normal;
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+}
+
+.underline-text {
+  color: #39d353;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+button.underline-text {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+#buymeacoffee {
+  color: #FFDD00;
+}
+
+#github {
+  color: #fafbfc;
+}
