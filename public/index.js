@@ -305,6 +305,13 @@ document.addEventListener("DOMContentLoaded", function () {
     applyText();
     textInput.focus();
   });
+
+  document.getElementById("open-examples").addEventListener("click", openExamples);
+  document.getElementById("close-examples").addEventListener("click", closeExamples);
+  document.getElementById("join-date").addEventListener("click", github_join_date);
+  document.getElementById("generate-commands").addEventListener("click", displayCode);
+  document.getElementById("copy-commands").addEventListener("click", copyCode);
+  document.getElementById("download-script").addEventListener("click", generateShellScript);
 });
 
 function collectCommitDates() {
