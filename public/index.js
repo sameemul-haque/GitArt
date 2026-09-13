@@ -1,4 +1,3 @@
-let dateforgitlist = [];
 document.addEventListener("DOMContentLoaded", function () {
   const squaresContainer = document.querySelector(".squares");
   const yearSelect = document.getElementById("year-select");
@@ -30,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function generateCalendar(year) {
     squaresContainer.innerHTML = "";
-    dateforgitlist = [];
     const endDate = new Date(year, 11, 31);
     const startingDay = new Date(year, 0, 1).getDay();
     const currentDate = new Date(year, 0, 1 - startingDay);
@@ -48,26 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!square.classList.contains("previous-year")) {
         square.addEventListener("click", function () {
           const currentLevel = parseInt(square.getAttribute("data-level"));
-          const options = { year: "numeric", month: "short", day: "numeric" };
-          const dateforgit = parseDate(square.getAttribute("data-date")).toLocaleDateString("en", options);
-          if (currentLevel < 4) {
-            dateforgitlist.push(dateforgit);
-            increaseLevel(square, currentLevel);
-          }
+          increaseLevel(square, currentLevel);
         });
 
         square.addEventListener("contextmenu", function (event) {
           event.preventDefault();
           const currentLevel = parseInt(square.getAttribute("data-level"));
-          const options = { year: "numeric", month: "short", day: "numeric" };
-          const dateforgit = parseDate(square.getAttribute("data-date")).toLocaleDateString("en", options);
-          if (currentLevel > 0) {
-            decreaseLevel(square, currentLevel);
-            const index = dateforgitlist.indexOf(dateforgit);
-            if (index > -1) {
-              dateforgitlist.splice(index, 1);
-            }
-          }
+          decreaseLevel(square, currentLevel);
         });
 
         square.addEventListener("mouseover", function (event) {
@@ -104,8 +89,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+function collectCommitDates() {
+  const dateList = [];
+  const options = { year: "numeric", month: "short", day: "numeric" };
+  document.querySelectorAll(".squares li:not(.previous-year)").forEach(square => {
+    const level = parseInt(square.getAttribute("data-level"));
+    if (level > 0) {
+      const [year, month, day] = square.getAttribute("data-date").split("-").map(Number);
+      const date = new Date(year, month - 1, day).toLocaleDateString("en", options);
+      for (let i = 0; i < level; i++) {
+        dateList.push(date);
+      }
+    }
+  });
+  return dateList;
+}
+
 function generateCode() {
-  const dateList = dateforgitlist;
+  const dateList = collectCommitDates();
   if (dateList.length === 0) {
     alert("Please select at least one date from the contribution graph!");
     return false;
