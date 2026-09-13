@@ -72,6 +72,35 @@
 
 </details>
 
+## Project structure
+
+Plain HTML, CSS and JavaScript with no build step. Serve the `public` folder with any static server (for example the VS Code Live Server extension).
+
+```
+public/
+├── index.html          page markup
+├── css/                one stylesheet per section of the page
+│   ├── base.css        variables, body, shared link styles
+│   ├── header.css      logo, title, description
+│   ├── instructions.css
+│   ├── text-input.css  word input, hint and clear button
+│   ├── graph.css       contribution graph and year picker
+│   ├── generate.css    generate button
+│   ├── code-editor.css generated commands panel
+│   └── examples.css    examples overlay
+├── js/                 ES modules, loaded from main.js
+│   ├── main.js         wires up the page
+│   ├── calendar.js     builds the graph for a year, square click handling
+│   ├── dates.js        date formatting helpers
+│   ├── font.js         3x5 pixel font used to draw text
+│   ├── text-draw.js    draws typed text onto the graph
+│   ├── commands.js     builds, copies and downloads the git commands
+│   ├── github.js       GitHub join date lookup
+│   ├── icons.js        svg icon paths
+│   └── examples.js     examples overlay
+└── assets/             logo and example images
+```
+
 ## Acknowledgements
 
 - [Git Logo](https://git-scm.com/downloads/logos)
