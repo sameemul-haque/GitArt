@@ -90,6 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const textInput = document.getElementById("text-input");
   const textClear = document.getElementById("text-clear");
+  const textHint = document.getElementById("text-hint");
+  const textWrapper = textInput.parentElement;
   const TEXT_ROWS = [1, 2, 3, 4, 5];
   const GLYPH_GAP = 1;
   const FONT = {
@@ -231,19 +233,66 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function lettersLeft(text, available) {
+    const used = textWidth(text);
+    const perLetter = 3 + GLYPH_GAP;
+    if (used === 0) {
+      return Math.floor((available + GLYPH_GAP) / perLetter);
+    }
+    return Math.max(0, Math.floor((available - used) / perLetter));
+  }
+
+  function shakeInput() {
+    textWrapper.classList.remove("shake");
+    void textWrapper.offsetWidth;
+    textWrapper.classList.add("shake");
+  }
+
+  function updateHint(text, available, overflowed, skipped) {
+    const year = yearSelect.value;
+    const left = lettersLeft(text, available);
+    let message;
+
+    if (overflowed) {
+      message = `Only "${text.toUpperCase()}" fits in ${year}. Generate these commands, then pick another year for the rest.`;
+    } else if (left === 0) {
+      message = `${year} is full. Generate these commands, then pick another year to add more.`;
+    } else if (skipped.length > 0) {
+      message = `Skipped ${skipped.map(char => `"${char}"`).join(", ")} since the graph can't draw it.`;
+    } else if (text === "") {
+      message = `Room for ${left} letters.`;
+    } else {
+      message = `Room for ${left} more letter${left === 1 ? "" : "s"}.`;
+    }
+
+    textHint.textContent = message;
+    textHint.classList.toggle("full", overflowed || left === 0);
+  }
+
   function applyText() {
     const chars = [...textInput.value];
     const supported = chars.filter(char => FONT[char.toUpperCase()]).join("");
-    const fitted = fitText(supported, textColumns().length);
+    const skipped = [...new Set(chars.filter(char => !FONT[char.toUpperCase()]))];
+    const available = textColumns().length;
+    const fitted = fitText(supported, available);
+    const overflowed = fitted.length < supported.length;
 
     if (textInput.value !== fitted) {
       textInput.value = fitted;
     }
+    if (overflowed) {
+      shakeInput();
+    }
     paintText(fitted);
     textClear.hidden = fitted === "";
+    updateHint(fitted, available, overflowed, skipped);
   }
+  updateHint("", textColumns().length, false, []);
 
   textInput.addEventListener("input", applyText);
+  textWrapper.addEventListener("animationend", function () {
+    textWrapper.classList.remove("shake");
+  });
   textInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       textInput.blur();

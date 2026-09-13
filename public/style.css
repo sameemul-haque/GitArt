@@ -210,6 +210,27 @@ button.underline-text {
   color: #39d353;
 }
 
+.text-hint {
+  min-height: 1.2em;
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: #8b949e;
+}
+
+.text-hint.full {
+  color: #e3b341;
+}
+
+.text-input-wrapper.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
 .graph-container {
   display: flex;
   justify-content: center;
