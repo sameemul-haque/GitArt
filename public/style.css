@@ -148,6 +148,68 @@ button.underline-text {
   grid-area: squares;
 }
 
+.text-input-container {
+  max-width: 500px;
+  margin: 1.5rem auto 0;
+  text-align: center;
+}
+
+.text-input-label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.text-input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 320px;
+}
+
+#text-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 36px 8px 12px;
+  color: #fafbfc;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+#text-input::placeholder {
+  color: #6e7681;
+}
+
+#text-input:focus {
+  outline: none;
+  border-color: #39d353;
+}
+
+.text-clear-btn {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  padding: 0 6px;
+  border: none;
+  border-radius: 5px;
+  background: none;
+  color: #fafbfc;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.text-clear-btn:hover,
+.text-clear-btn:focus-visible {
+  color: #39d353;
+}
+
 .graph-container {
   display: flex;
   justify-content: center;

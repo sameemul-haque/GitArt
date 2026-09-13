@@ -96,6 +96,15 @@
     </ul>
   </div>
 
+  <div class="text-input-container">
+    <label for="text-input" class="text-input-label">Or type a word to draw it on the graph</label>
+    <div class="text-input-wrapper">
+      <input type="text" id="text-input" placeholder="HELLO" autocomplete="off" autocapitalize="characters"
+        spellcheck="false" enterkeyhint="done" />
+      <button type="button" id="text-clear" class="text-clear-btn" aria-label="Clear text" hidden>&times;</button>
+    </div>
+  </div>
+
   <div class="graph-container">
     <div class="graph">
       <select size="3" id="year-select"></select>
