@@ -20,6 +20,7 @@
 
 - Select a year (choosing a year before joining GitHub is better).
 - Left click on the squares to activate and right click to deactivate them.
+- Or type a word into the text box to draw it on the graph, then adjust squares by hand if you like.
 - Click on one of the `Generate` buttons and follow the rest of the instructions.
 
 <!-- <details>
