@@ -10,9 +10,10 @@
   font-size: 7rem;
 }
 
-h2 {
+.tagline {
   color: #39d353;
   font-size: 1rem;
+  font-weight: 600;
   text-align: center;
   margin-top: -60px;
   margin-bottom: 1.5rem;
@@ -38,7 +39,7 @@ h2 {
     font-size: 4rem;
   }
 
-  h2 {
+  .tagline {
     font-size: 0.75rem;
     margin-top: -40px;
   }

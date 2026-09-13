@@ -5,6 +5,10 @@
   margin-right: auto;
 }
 
+.instructions-gitart h2 {
+  font-size: 1.17rem;
+}
+
 .instructions-gitart a {
   color: #39d353;
 }

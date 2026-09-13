@@ -1,0 +1,26 @@
+.faq {
+  max-width: 500px;
+  margin: 0 auto 3rem;
+  font-size: 0.9rem;
+}
+
+.faq h2 {
+  font-size: 1.17rem;
+}
+
+.faq-item h3 {
+  font-size: 0.95rem;
+  margin: 1rem 0 0.25rem;
+}
+
+.faq-item p {
+  margin: 0;
+  color: #c9d1d9;
+}
+
+@media screen and (max-width: 600px) {
+  .faq {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}

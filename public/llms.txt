@@ -1,0 +1,11 @@
+# GitArt
+
+> Free browser tool that draws names, words and pixel art on a GitHub contribution graph by generating git commit commands. No login, no token, nothing leaves the browser.
+
+How it works: pick a year, type a word or click squares on the calendar, generate the commands, run them inside a new repository and push. The commits are ordinary empty commits with backdated timestamps, so GitHub counts them like any other commit.
+
+## Pages
+
+- [GitArt](https://gitart.pages.dev/): design the graph and generate the commands
+- [Examples](https://gitart.pages.dev/examples): finished contribution graphs
+- [Source code](https://github.com/sameemul-haque/GitArt): open source under GPL-3.0

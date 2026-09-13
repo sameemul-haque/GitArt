@@ -7,8 +7,10 @@
 
   <title>GitArt - GitHub Contribution Graph Customizer</title>
   <meta name="description"
-    content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, and logos, shaping your GitHub presence uniquely." />
-  <meta name="keywords" content="gitart, github contribution graph customizer" />
+    content="Draw names, words and pixel art on your GitHub contribution graph. GitArt turns your design into git commit commands you run once. Free, no signup." />
+  <meta name="keywords" content="gitart, github contribution graph, contribution graph art, github profile art" />
+  <meta name="author" content="Sameemul Haque" />
+  <meta name="theme-color" content="#0d1117" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
   <link rel="canonical" href="https://gitart.pages.dev/" />
 
@@ -22,40 +24,131 @@
   <!-- og meta tags -->
   <meta property="og:title" content="GitArt - GitHub Contribution Graph Customizer" />
   <meta property="og:description"
-    content="Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, and logos, shaping your GitHub presence uniquely." />
+    content="Draw names, words and pixel art on your GitHub contribution graph. GitArt turns your design into git commit commands you run once. Free, no signup." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://gitart.pages.dev/banner.png" />
-  <meta property="og:image:width" content="1366" />
-  <meta property="og:image:height" content="768" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="GitArt - GitHub Contribution Graph Customizer" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:url" content="https://gitart.pages.dev/" />
-  <meta property="og:site_name" content="GitArt - GitHub Contribution Graph Customizer" />
+  <meta property="og:site_name" content="GitArt" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- twitter meta tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@sameemul_haque" />
   <meta name="twitter:title" content="GitArt - GitHub Contribution Graph Customizer" />
   <meta name="twitter:creator" content="@sameemul_haque" />
-  <meta name="twitter:description" content="GitArt - GitHub Contribution Graph Customizer" />
+  <meta name="twitter:description" content="Draw names, words and pixel art on your GitHub contribution graph. GitArt turns your design into git commit commands you run once. Free, no signup." />
   <meta name="twitter:image" content="https://gitart.pages.dev/banner.png" />
+  <meta name="twitter:image:alt" content="GitArt - GitHub Contribution Graph Customizer" />
 
   <!-- schema.org structured data -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "GitArt - GitHub Contribution Graph Customizer",
-      "alternateName": "GitArt Graph Customizer",
-      "url": "https://gitart.pages.dev",
-      "description": "Enhance your GitHub contribution graph with GitArt - Personalize your profile with names, messages, symbols, and logos, shaping your GitHub presence uniquely.",
-      "sameAs": [
-        "https://github.com/sameemul-haque/GitArt"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://gitart.pages.dev/#website",
+          "name": "GitArt",
+          "alternateName": "GitArt - GitHub Contribution Graph Customizer",
+          "url": "https://gitart.pages.dev/",
+          "description": "Draw names, words and pixel art on your GitHub contribution graph. GitArt turns your design into git commit commands you run once. Free, no signup.",
+          "inLanguage": "en",
+          "author": {
+            "@id": "https://gitart.pages.dev/#author"
+          },
+          "sameAs": [
+            "https://github.com/sameemul-haque/GitArt"
+          ]
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://gitart.pages.dev/#app",
+          "name": "GitArt",
+          "url": "https://gitart.pages.dev/",
+          "description": "Draw names, words and pixel art on your GitHub contribution graph. GitArt turns your design into git commit commands you run once. Free, no signup.",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "isAccessibleForFree": true,
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "image": "https://gitart.pages.dev/banner.png",
+          "screenshot": "https://gitart.pages.dev/assets/examples/hello.png",
+          "featureList": [
+            "Type a word and draw it on the contribution graph",
+            "Click squares to design pixel art by hand",
+            "Generate git commit commands or download a shell script",
+            "Look up your GitHub join date"
+          ],
+          "author": {
+            "@id": "https://gitart.pages.dev/#author"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://gitart.pages.dev/#author",
+          "name": "Sameemul Haque",
+          "url": "https://github.com/sameemul-haque"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://gitart.pages.dev/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is GitArt?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GitArt is a free tool that draws names, words and pixel art on your GitHub contribution graph. You design the pattern on a calendar and GitArt generates the git commit commands that create it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I write text on my GitHub contribution graph?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pick a year, type a word or click squares to design the pattern, then run the generated commands inside a new repository and push it. GitHub shows the commits as green squares on your profile."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are the commits real?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The script creates ordinary empty commits with backdated timestamps. GitHub counts them like any other commit as long as the commit email matches your account."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does GitArt need access to my GitHub account?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. GitArt runs entirely in your browser and never asks for a token or login. You run the commands yourself and push to a repository you own."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which year should I pick?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Any year works, but years before you joined GitHub are usually empty so the drawing stands out. GitArt can look up your join date for you."
+              }
+            }
+          ]
+        }
       ]
     }
-    </script>
+  </script>
 
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geo&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -66,13 +159,16 @@
   <link rel="stylesheet" href="css/graph.css" />
   <link rel="stylesheet" href="css/generate.css" />
   <link rel="stylesheet" href="css/code-editor.css" />
+  <link rel="stylesheet" href="css/faq.css" />
 </head>
 
 <body>
   <header>
-    <h1 class="brand"><img class="logo-gitart" src="assets/logo.svg" alt="Logo" />GitArt</h1>
-    <h2>GitHub Contribution Graph Customizer</h2>
+    <h1 class="brand"><img class="logo-gitart" src="assets/logo.svg" alt="" width="100" height="100" />GitArt</h1>
+    <p class="tagline">GitHub Contribution Graph Customizer</p>
   </header>
+
+  <main>
   <p id="description-gitart">
     <b>GitArt</b> is a tool that allows users to customize their GitHub
     contribution graph by generating Git commit commands. With this tool,
@@ -80,20 +176,21 @@
     messages, symbols, logos, or any other desired patterns.
   </p>
 
-  <div class="row-btns">
-    <a href="https://buymeacoffee.com/sameemul_haque" target="_blank" class="underline-text" id="buymeacoffee">
+  <nav class="row-btns" aria-label="Links">
+    <a href="https://buymeacoffee.com/sameemul_haque" target="_blank" rel="noopener" class="underline-text"
+      id="buymeacoffee">
       Buy Me a Coffee
     </a>
-    <a href="https://github.com/sameemul-haque/GitArt" target="_blank" class="underline-text" id="github">
+    <a href="https://github.com/sameemul-haque/GitArt" target="_blank" rel="noopener" class="underline-text" id="github">
       GitHub
     </a>
     <a href="examples.html" class="underline-text">
       Examples
     </a>
-  </div>
+  </nav>
 
-  <div class="instructions-gitart">
-    <h3>Instructions</h3>
+  <section class="instructions-gitart" aria-labelledby="instructions-heading">
+    <h2 id="instructions-heading">Instructions</h2>
     <ul>
       <li>Select a year (choosing a year before <button type="button" class="underline-text"
           id="join-date">joining GitHub</button> is better).</li>
@@ -101,7 +198,7 @@
       <li>Or type a word into the text box to draw it on the graph, then adjust squares by hand if you like.</li>
       <li>Click on one of the <b>Generate</b> buttons and follow the rest of the instructions.</li>
     </ul>
-  </div>
+  </section>
 
   <div class="text-input-container">
     <label for="text-input" class="text-input-label">Or type a word to draw it on the graph</label>
@@ -192,6 +289,31 @@
       </div>
     </div>
   </div>
+
+  <section class="faq" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>What is GitArt?</h3>
+      <p>GitArt is a free tool that draws names, words and pixel art on your GitHub contribution graph. You design the pattern on a calendar and GitArt generates the git commit commands that create it.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I write text on my GitHub contribution graph?</h3>
+      <p>Pick a year, type a word or click squares to design the pattern, then run the generated commands inside a new repository and push it. GitHub shows the commits as green squares on your profile.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are the commits real?</h3>
+      <p>Yes. The script creates ordinary empty commits with backdated timestamps. GitHub counts them like any other commit as long as the commit email matches your account.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does GitArt need access to my GitHub account?</h3>
+      <p>No. GitArt runs entirely in your browser and never asks for a token or login. You run the commands yourself and push to a repository you own.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Which year should I pick?</h3>
+      <p>Any year works, but years before you joined GitHub are usually empty so the drawing stands out. GitArt can look up your join date for you.</p>
+    </div>
+  </section>
+  </main>
 
   <script type="module" src="js/main.js"></script>
 
