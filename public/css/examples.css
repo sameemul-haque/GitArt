@@ -1,50 +1,42 @@
-#examples h3 {
-  font-size: 1.5rem;
-}
-
-#examples {
-  display: none;
-  margin: 0;
-  position: absolute;
+.examples {
+  max-width: 750px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
   text-align: center;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  padding-bottom: 100%;
-  background-color: #0d1117;
-  overflow: scroll;
-  z-index: 999;
 }
 
-.example-pic-container {
-  display: flex;
-  font-size: 1px;
-  flex-direction: column;
+.examples h1 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.examples-intro {
+  font-size: 0.9rem;
   max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 0 auto 1.5rem;
+}
+
+.example-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.example-list figure {
+  margin: 0;
 }
 
 .example-pic {
-  margin-bottom: 1rem;
+  width: 100%;
+  height: auto;
+  border: 1px solid #30363d;
+  border-radius: 6px;
 }
 
-.close-btn {
-  /* background-color: red; */
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.close-btn-svg {
-  /* background-color: blue; */
-  cursor: pointer;
+.example-list figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #8b949e;
 }
