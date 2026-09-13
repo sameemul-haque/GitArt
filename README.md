@@ -78,7 +78,8 @@ Plain HTML, CSS and JavaScript with no build step. Serve the `public` folder wit
 
 ```
 public/
-├── index.html          page markup
+├── index.html          main page
+├── examples.html       examples page
 ├── css/                one stylesheet per section of the page
 │   ├── base.css        variables, body, shared link styles
 │   ├── header.css      logo, title, description
@@ -87,7 +88,7 @@ public/
 │   ├── graph.css       contribution graph and year picker
 │   ├── generate.css    generate button
 │   ├── code-editor.css generated commands panel
-│   └── examples.css    examples overlay
+│   └── examples.css    examples page
 ├── js/                 ES modules, loaded from main.js
 │   ├── main.js         wires up the page
 │   ├── calendar.js     builds the graph for a year, square click handling
@@ -96,8 +97,7 @@ public/
 │   ├── text-draw.js    draws typed text onto the graph
 │   ├── commands.js     builds, copies and downloads the git commands
 │   ├── github.js       GitHub join date lookup
-│   ├── icons.js        svg icon paths
-│   └── examples.js     examples overlay
+│   └── icons.js        svg icon paths
 └── assets/             logo and example images
 ```
 
