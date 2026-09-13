@@ -15,6 +15,28 @@
   justify-content: center;
 }
 
+.graph-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+  margin: 20px;
+}
+
+.graph-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.year-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .graph {
   display: inline-grid;
   grid-template-areas:
@@ -28,12 +50,12 @@
   padding: 20px;
   border: 1px #30363d solid;
   border-radius: 6px;
-  margin: 20px;
 }
 
 .months {
   display: flex;
   justify-content: space-around;
+  margin: 0;
 }
 
 .days,
@@ -82,13 +104,17 @@
 }
 
 #year-select {
+  padding: 6px 10px;
   color: #fafbfc;
   background-color: #0d1117;
   border: 1px solid #30363d;
   border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
-#year-select option:checked {
-  background-color: #39d353;
-  width: 100%;
+#year-select:focus {
+  outline: none;
+  border-color: #39d353;
 }
