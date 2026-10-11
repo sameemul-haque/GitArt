@@ -3,6 +3,12 @@ import { CHECK_ICON, COPY_ICON, DOWNLOAD_ICON } from "./icons.js";
 
 const codeContainer = document.querySelector(".code");
 const codeContainerElement = document.querySelector(".code-container");
+const generateHint = document.getElementById("generate-hint");
+
+// the hint is stale as soon as a square gets filled
+new MutationObserver(function () {
+  generateHint.textContent = "";
+}).observe(document.querySelector(".squares"), { attributes: true, subtree: true, attributeFilter: ["data-level"] });
 const codeIcon = document.querySelector(".code-icon");
 const downloadIcon = document.querySelector(".download-icon");
 
@@ -23,9 +29,10 @@ function collectCommitDates() {
 function generateCode() {
   const dateList = collectCommitDates();
   if (dateList.length === 0) {
-    alert("Please select at least one date from the contribution graph!");
+    generateHint.textContent = "Fill at least one square on the graph first.";
     return false;
   }
+  generateHint.textContent = "";
   codeContainer.innerHTML = "";
   dateList.forEach(date => {
     const gitCommand = `git commit --allow-empty --date="${date}" --allow-empty-message -m ""`;
