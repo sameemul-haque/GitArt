@@ -1,4 +1,4 @@
-import { FONT, GLYPH_GAP, TEXT_ROWS } from "./font.js";
+import { GLYPH_GAP, REQUIRED_CHARS, textRows } from "./font-format.js";
 import { clearSquares, getSquares, getYear } from "./calendar.js";
 
 const textInput = document.getElementById("text-input");
@@ -6,9 +6,14 @@ const textClear = document.getElementById("text-clear");
 const textHint = document.getElementById("text-hint");
 const textWrapper = textInput.parentElement;
 let textSquares = new Map();
+let font = { height: 5, glyphs: {} };
+let typedText = "";
 
 export function initTextDraw() {
-  textInput.addEventListener("input", applyText);
+  textInput.addEventListener("input", function () {
+    typedText = textInput.value;
+    applyText();
+  });
   textInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       textInput.blur();
@@ -19,10 +24,18 @@ export function initTextDraw() {
   });
   textClear.addEventListener("click", function () {
     textInput.value = "";
+    typedText = "";
     applyText();
     textInput.focus();
   });
   updateHint("", textColumns().length, false, []);
+}
+
+export function setFont(newFont) {
+  font = newFont;
+  textInput.classList.toggle("mixed-case", hasLowercase());
+  textInput.value = typedText;
+  applyText();
 }
 
 export function redrawText() {
@@ -32,6 +45,7 @@ export function redrawText() {
 
 export function clearGraph() {
   textInput.value = "";
+  typedText = "";
   textSquares = new Map();
   clearSquares();
   applyText();
@@ -39,9 +53,10 @@ export function clearGraph() {
 
 function textColumns() {
   const squares = getSquares();
+  const rows = textRows(font.height);
   const columns = [];
   for (let column = 0; column * 7 < squares.length; column++) {
-    const usable = TEXT_ROWS.every(row => {
+    const usable = rows.every(row => {
       const square = squares[column * 7 + row];
       return square && !square.classList.contains("previous-year");
     });
@@ -52,8 +67,16 @@ function textColumns() {
   return columns;
 }
 
+function hasLowercase() {
+  return Object.keys(font.glyphs).some(char => char !== char.toUpperCase());
+}
+
+function glyphFor(char) {
+  return font.glyphs[char] || font.glyphs[char.toUpperCase()];
+}
+
 function glyphsFor(text) {
-  return [...text.toUpperCase()].map(char => FONT[char]).filter(Boolean);
+  return [...text].map(glyphFor).filter(Boolean);
 }
 
 function textWidth(text) {
@@ -79,6 +102,7 @@ function fitText(text, available) {
 function paintText(text) {
   const squares = getSquares();
   const columns = textColumns();
+  const rows = textRows(font.height);
   const target = new Set();
   let column = columns[0];
 
@@ -89,7 +113,7 @@ function paintText(text) {
     glyph.forEach((pixels, row) => {
       [...pixels].forEach((pixel, offset) => {
         if (pixel === "#") {
-          target.add(squares[(column + offset) * 7 + TEXT_ROWS[row]]);
+          target.add(squares[(column + offset) * 7 + rows[row]]);
         }
       });
     });
@@ -110,9 +134,17 @@ function paintText(text) {
   });
 }
 
+function averageLetterWidth() {
+  const widths = REQUIRED_CHARS.map(glyphFor).filter(Boolean).map(glyph => glyph[0].length);
+  if (widths.length === 0) {
+    return 3;
+  }
+  return Math.round(widths.reduce((sum, width) => sum + width, 0) / widths.length);
+}
+
 function lettersLeft(text, available) {
   const used = textWidth(text);
-  const perLetter = 3 + GLYPH_GAP;
+  const perLetter = averageLetterWidth() + GLYPH_GAP;
   if (used === 0) {
     return Math.floor((available + GLYPH_GAP) / perLetter);
   }
@@ -131,11 +163,11 @@ function updateHint(text, available, overflowed, skipped) {
   let message;
 
   if (overflowed) {
-    message = `Only "${text.toUpperCase()}" fits in ${year}. Generate these commands, then pick another year for the rest.`;
+    message = `Only "${hasLowercase() ? text : text.toUpperCase()}" fits in ${year}. Generate these commands, then pick another year for the rest.`;
   } else if (left === 0) {
     message = `${year} is full. Generate these commands, then pick another year to add more.`;
   } else if (skipped.length > 0) {
-    message = `Skipped ${skipped.map(char => `"${char}"`).join(", ")} since the graph can't draw it.`;
+    message = `Skipped ${skipped.map(char => `"${char}"`).join(", ")} since this font can't draw ${skipped.length === 1 ? "it" : "them"}.`;
   } else if (text === "") {
     message = `Room for ${left} letters.`;
   } else {
@@ -148,8 +180,8 @@ function updateHint(text, available, overflowed, skipped) {
 
 function applyText() {
   const chars = [...textInput.value];
-  const supported = chars.filter(char => FONT[char.toUpperCase()]).join("");
-  const skipped = [...new Set(chars.filter(char => !FONT[char.toUpperCase()]))];
+  const supported = chars.filter(glyphFor).join("");
+  const skipped = [...new Set(chars.filter(char => !glyphFor(char)))];
   const available = textColumns().length;
   const fitted = fitText(supported, available);
   const overflowed = fitted.length < supported.length;

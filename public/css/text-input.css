@@ -10,6 +10,117 @@
   margin-bottom: 0.5rem;
 }
 
+.font-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.font-combo {
+  position: relative;
+}
+
+.font-button {
+  max-width: min(300px, 70vw);
+  overflow: hidden;
+  padding: 6px 28px 6px 10px;
+  color: #fafbfc;
+  background: #0d1117 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238b949e'/%3E%3C/svg%3E") no-repeat right 10px center;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.font-button:focus-visible,
+.font-button[aria-expanded="true"] {
+  outline: none;
+  border-color: #39d353;
+}
+
+.font-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  z-index: 10;
+  width: 260px;
+  max-width: calc(100vw - 32px);
+  padding: 6px;
+  box-sizing: border-box;
+  transform: translateX(-50%);
+  text-align: left;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(1, 4, 9, 0.6);
+}
+
+#font-search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  color: #fafbfc;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+#font-search:focus {
+  outline: none;
+  border-color: #39d353;
+}
+
+.font-list {
+  max-height: 240px;
+  margin: 6px 0 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.font-group {
+  padding: 6px 8px 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.font-option {
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.font-option .font-author {
+  color: #8b949e;
+}
+
+.font-option.active {
+  background-color: #21262d;
+}
+
+.font-option[aria-selected="true"] {
+  color: #39d353;
+}
+
+.font-empty {
+  padding: 8px;
+  font-size: 0.85rem;
+  color: #8b949e;
+}
+
 .text-input-wrapper {
   position: relative;
   display: inline-block;
@@ -29,6 +140,10 @@
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+#text-input.mixed-case {
+  text-transform: none;
 }
 
 #text-input::placeholder {

@@ -202,6 +202,19 @@
 
   <div class="text-input-container">
     <label for="text-input" class="text-input-label">Or type a word to draw it on the graph</label>
+    <div class="font-picker">
+      <span id="font-label">Font</span>
+      <div class="font-combo">
+        <button type="button" id="font-button" class="font-button" aria-haspopup="listbox" aria-expanded="false"
+          aria-labelledby="font-label font-button">Classic by sameemul-haque</button>
+        <div id="font-panel" class="font-panel" hidden>
+          <input type="search" id="font-search" placeholder="Search fonts or authors" autocomplete="off"
+            spellcheck="false" role="combobox" aria-controls="font-list" aria-expanded="true"
+            aria-autocomplete="list" aria-label="Search fonts" />
+          <ul id="font-list" class="font-list" role="listbox" aria-labelledby="font-label"></ul>
+        </div>
+      </div>
+    </div>
     <div class="text-input-wrapper">
       <input type="text" id="text-input" placeholder="HELLO" autocomplete="off" autocapitalize="characters"
         spellcheck="false" enterkeyhint="done" />
