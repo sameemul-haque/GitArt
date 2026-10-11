@@ -7,10 +7,14 @@ export const DEFAULT_FONT_ID = "classic";
 export async function loadBuiltinFonts() {
   const response = await fetch("fonts/index.json");
   const files = await response.json();
-  const fonts = await Promise.all(files.map(async file => {
+  const results = await Promise.allSettled(files.map(async file => {
     const font = await (await fetch(`fonts/${file}`)).json();
     return { ...font, id: file.replace(/\.json$/, ""), builtin: true };
   }));
+  // skip a missing or broken file instead of losing every font
+  const fonts = results
+    .filter(result => result.status === "fulfilled" && fontProblems(result.value).length === 0)
+    .map(result => result.value);
   return fonts.sort((a, b) => (a.id === DEFAULT_FONT_ID ? -1 : b.id === DEFAULT_FONT_ID ? 1 : a.name.localeCompare(b.name)));
 }
 
