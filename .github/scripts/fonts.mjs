@@ -41,6 +41,24 @@ function check() {
     }
   }
 
+  let listed = [];
+  try {
+    listed = JSON.parse(readFileSync(new URL("index.json", FONTS_DIR), "utf8"));
+    if (!Array.isArray(listed)) {
+      throw new Error("should be a list of file names");
+    }
+  } catch (error) {
+    failed = true;
+    listed = [];
+    console.log(`::error file=public/fonts/index.json::not a valid index (${error.message})`);
+  }
+  for (const file of listed) {
+    if (!files.includes(file)) {
+      failed = true;
+      console.log(`::error file=public/fonts/index.json::lists ${file}, which doesn't exist`);
+    }
+  }
+
   process.exitCode = failed ? 1 : 0;
 }
 
