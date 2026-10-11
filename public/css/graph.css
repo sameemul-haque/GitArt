@@ -87,6 +87,7 @@
 .squares {
   grid-auto-flow: column;
   grid-auto-columns: var(--square-size);
+  user-select: none;
 }
 
 .graph-container li {

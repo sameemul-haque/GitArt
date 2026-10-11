@@ -24,6 +24,77 @@ export function initCalendar(onYearChange) {
     generateCalendar(parseInt(yearSelect.value));
     onYearChange();
   });
+  initPainting();
+}
+
+// mouse and pen paint on press and while dragging, touch keeps tap so the graph can still scroll
+let paintLevel = null;
+let skipClick = false;
+let skipContextMenu = false;
+
+function paintableSquare(target) {
+  const square = target.closest("li[data-date]");
+  return square && !square.classList.contains("previous-year") ? square : null;
+}
+
+function initPainting() {
+  squaresContainer.addEventListener("pointerdown", function (event) {
+    skipClick = false;
+    const square = paintableSquare(event.target);
+    if (!square || event.pointerType === "touch" || event.ctrlKey || event.button > 2) {
+      return;
+    }
+    event.preventDefault();
+    const currentLevel = parseInt(square.getAttribute("data-level"));
+    if (event.button === 2) {
+      skipContextMenu = true;
+      paintLevel = Math.max(0, currentLevel - 1);
+    } else {
+      skipClick = true;
+      paintLevel = Math.min(4, currentLevel + 1);
+    }
+    square.setAttribute("data-level", paintLevel);
+  });
+
+  squaresContainer.addEventListener("pointerover", function (event) {
+    const square = paintableSquare(event.target);
+    if (!square) {
+      return;
+    }
+    square.title = toLongDate(square.getAttribute("data-date"));
+    if (paintLevel !== null) {
+      square.setAttribute("data-level", paintLevel);
+    }
+  });
+
+  window.addEventListener("pointerup", function () {
+    paintLevel = null;
+  });
+  window.addEventListener("pointercancel", function () {
+    paintLevel = null;
+  });
+
+  squaresContainer.addEventListener("click", function (event) {
+    const square = paintableSquare(event.target);
+    if (skipClick || !square) {
+      skipClick = false;
+      return;
+    }
+    increaseLevel(square, parseInt(square.getAttribute("data-level")));
+  });
+
+  squaresContainer.addEventListener("contextmenu", function (event) {
+    const square = paintableSquare(event.target);
+    if (!square) {
+      return;
+    }
+    event.preventDefault();
+    if (skipContextMenu) {
+      skipContextMenu = false;
+      return;
+    }
+    decreaseLevel(square, parseInt(square.getAttribute("data-level")));
+  });
 }
 
 function generateYearOptions() {
@@ -54,26 +125,6 @@ function generateCalendar(year) {
     }
 
     squaresContainer.appendChild(square);
-    if (!square.classList.contains("previous-year")) {
-      square.addEventListener("click", function () {
-        const currentLevel = parseInt(square.getAttribute("data-level"));
-        increaseLevel(square, currentLevel);
-      });
-
-      square.addEventListener("contextmenu", function (event) {
-        event.preventDefault();
-        const currentLevel = parseInt(square.getAttribute("data-level"));
-        decreaseLevel(square, currentLevel);
-      });
-
-      square.addEventListener("mouseover", function (event) {
-        const target = event.target;
-        if (target && target.matches("li[data-date]")) {
-          target.title = toLongDate(target.getAttribute("data-date"));
-        }
-      });
-    }
-
     currentDate.setDate(currentDate.getDate() + 1);
   }
 }
