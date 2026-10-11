@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Font Editor - GitArt</title>
+  <meta name="description"
+    content="Design your own pixel font for the GitHub contribution graph. Draw each letter, use it in GitArt, export it or share it with everyone." />
+  <link rel="canonical" href="https://gitart.pages.dev/font-editor" />
+  <meta name="robots" content="index,follow" />
+  <meta name="author" content="Sameemul Haque" />
+  <meta name="theme-color" content="#0d1117" />
+
+  <meta property="og:title" content="Font Editor - GitArt" />
+  <meta property="og:description" content="Design your own pixel font for the GitHub contribution graph. Draw each letter, use it in GitArt, export it or share it with everyone." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gitart.pages.dev/font-editor" />
+  <meta property="og:image" content="https://gitart.pages.dev/banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="GitArt - GitHub Contribution Graph Customizer" />
+  <meta property="og:site_name" content="GitArt" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@sameemul_haque" />
+  <meta name="twitter:creator" content="@sameemul_haque" />
+  <meta name="twitter:title" content="Font Editor - GitArt" />
+  <meta name="twitter:description" content="Design your own pixel font for the GitHub contribution graph. Draw each letter, use it in GitArt, export it or share it with everyone." />
+  <meta name="twitter:image" content="https://gitart.pages.dev/banner.png" />
+  <meta name="twitter:image:alt" content="GitArt - GitHub Contribution Graph Customizer" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geo&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/font-editor.css" />
+</head>
+
+<body>
+  <header>
+    <a href="/" class="brand"><img class="logo-gitart" src="assets/logo.svg" alt="" width="100" height="100" />GitArt</a>
+  </header>
+
+  <main class="font-editor">
+    <h1>Font Editor</h1>
+    <p class="editor-intro">
+      Draw each letter of your own font, then use it on the graph, export it, or share it so everyone can pick it.
+    </p>
+
+    <section class="editor-card" aria-labelledby="details-heading">
+      <h2 id="details-heading">1. Font details</h2>
+      <div class="details-grid">
+        <label>Start from
+          <select id="start-from"></select>
+        </label>
+        <label>Font name
+          <input type="text" id="font-name" placeholder="My Font" maxlength="40" autocomplete="off" />
+        </label>
+        <label>Author (GitHub username)
+          <input type="text" id="font-author" placeholder="octocat" maxlength="39" autocomplete="off"
+            spellcheck="false" />
+        </label>
+        <label>Height
+          <select id="font-height"></select>
+        </label>
+      </div>
+    </section>
+
+    <section class="editor-card" aria-labelledby="glyphs-heading">
+      <h2 id="glyphs-heading">2. Draw the letters</h2>
+      <p class="card-hint">
+        Pick a character, draw it, then press <b>Save letter</b>. A to Z are needed to share the font,
+        everything else is optional. You can also just type a character to jump to it.
+      </p>
+      <p id="progress" class="progress" aria-live="polite"></p>
+      <div id="char-strip" class="char-strip" role="group" aria-label="Characters"></div>
+      <form id="add-char" class="add-char">
+        <label for="add-char-input">Add another character</label>
+        <input type="text" id="add-char-input" maxlength="2" autocomplete="off" spellcheck="false" />
+        <button type="submit" class="small-btn">Add</button>
+      </form>
+
+      <div class="glyph-editor">
+        <div class="glyph-header">
+          <span>Editing <b id="glyph-char" class="glyph-char"></b></span>
+          <span id="glyph-status" class="glyph-status"></span>
+        </div>
+        <div class="width-controls">
+          <span>Width</span>
+          <button type="button" id="width-less" class="small-btn" aria-label="Make narrower">&minus;</button>
+          <span id="width-value" class="width-value"></span>
+          <button type="button" id="width-more" class="small-btn" aria-label="Make wider">+</button>
+        </div>
+        <div id="glyph-grid" class="glyph-grid" aria-label="Letter grid"></div>
+        <p class="card-hint">Left click or drag to fill, right click to erase.</p>
+        <div class="glyph-actions">
+          <button type="button" id="glyph-save" class="primary-btn">Save letter</button>
+          <button type="button" id="glyph-clear" class="small-btn">Clear</button>
+          <button type="button" id="glyph-delete" class="small-btn danger">Delete letter</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="editor-card" aria-labelledby="preview-heading">
+      <h2 id="preview-heading">3. Preview</h2>
+      <input type="text" id="preview-input" value="HELLO WORLD" autocomplete="off" spellcheck="false"
+        aria-label="Preview text" />
+      <div class="preview-scroll">
+        <ul id="preview-graph" class="preview-graph"></ul>
+      </div>
+    </section>
+
+    <section class="editor-card" aria-labelledby="finish-heading">
+      <h2 id="finish-heading">4. Use or share it</h2>
+      <div class="finish-actions">
+        <button type="button" id="font-save" class="primary-btn">Save to my fonts</button>
+        <button type="button" id="font-export" class="small-btn">Export file</button>
+        <button type="button" id="font-import" class="small-btn">Import file</button>
+        <input type="file" id="font-import-file" accept=".json,application/json" hidden />
+        <button type="button" id="font-contribute" class="small-btn contribute">Share on GitHub</button>
+        <button type="button" id="font-delete" class="small-btn danger" hidden>Delete from my fonts</button>
+      </div>
+      <p id="finish-message" class="finish-message" aria-live="polite"></p>
+    </section>
+
+    <a href="/" class="underline-text">Back to GitArt</a>
+  </main>
+
+  <dialog id="contribute-dialog" class="contribute-dialog" aria-labelledby="contribute-heading">
+    <h2 id="contribute-heading">Share your font</h2>
+    <p>GitHub will open with your font file already filled in. Then:</p>
+    <ol>
+      <li>Sign in to GitHub if asked.</li>
+      <li id="contribute-paste" hidden>Paste the font into the empty file (it is already copied).</li>
+      <li>Click <b>Commit changes…</b> and then <b>Propose changes</b>.</li>
+      <li>Click <b>Create pull request</b>.</li>
+    </ol>
+    <p class="card-hint">
+      GitHub makes a copy of GitArt for you automatically, so you don't need git. Once it's reviewed and
+      merged, your font shows up for everyone as <b id="contribute-label"></b>.
+    </p>
+    <div class="dialog-actions">
+      <button type="button" id="contribute-cancel" class="small-btn">Cancel</button>
+      <a id="contribute-go" class="primary-btn" target="_blank" rel="noopener">Continue to GitHub</a>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/font-editor.js"></script>
+</body>
+
+</html>
