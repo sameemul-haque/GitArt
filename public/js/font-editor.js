@@ -12,7 +12,8 @@ import {
 } from "./font-format.js";
 import { deleteCustomFont, loadBuiltinFonts, loadCustomFonts, rememberFont, saveCustomFont } from "./fonts.js";
 
-const REPO_NEW_FILE = "https://github.com/sameemul-haque/GitArt/new/main/public/fonts";
+const REPO = "https://github.com/sameemul-haque/GitArt";
+const REPO_NEW_FILE = `${REPO}/new/main/public/fonts`;
 const MAX_URL_LENGTH = 8000;
 const DRAFT_KEY = "gitart-font-draft";
 const GITHUB_USERNAME = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
@@ -519,6 +520,7 @@ async function contribute() {
   setMessage("");
   document.getElementById("contribute-paste").hidden = !tooLong;
   document.getElementById("contribute-label").textContent = fontLabel(font);
+  document.getElementById("contribute-fork").href = `${REPO}/fork`;
   document.getElementById("contribute-go").href = tooLong ? base : full;
   dialog.showModal();
 }

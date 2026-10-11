@@ -73,8 +73,9 @@ Fonts live in [`public/fonts`](public/fonts), one JSON file per font. Each glyph
 ### Add your font
 
 1. Draw it in the [Font Editor](https://gitart.pages.dev/font-editor). It needs at least A to Z.
-2. Click **Share on GitHub**. GitHub opens with your font file filled in and forks the repo for you.
-3. Click **Commit changes…**, then **Propose changes**, then **Create pull request**.
+2. Click **Share on GitHub** and fork the repo from the link it shows (skip this if you already have a fork).
+3. Click **Continue to GitHub**. Your font file opens already filled in.
+4. Click **Commit changes…**, then **Propose changes**, then **Create pull request**.
 
 Prefer git? Export the file from the editor, add it to `public/fonts` in your fork as `your-font-name.json` and open a pull request. A check runs on the pull request, and `public/fonts/index.json` is updated automatically after merging.
 

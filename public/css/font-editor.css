@@ -344,6 +344,14 @@
   padding-left: 1.25rem;
 }
 
+.contribute-dialog li + li {
+  margin-top: 0.4rem;
+}
+
+.contribute-dialog a:not(.primary-btn) {
+  color: #39d353;
+}
+
 .dialog-actions {
   justify-content: flex-end;
 }

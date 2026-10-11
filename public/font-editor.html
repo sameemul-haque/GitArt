@@ -134,16 +134,17 @@
 
   <dialog id="contribute-dialog" class="contribute-dialog" aria-labelledby="contribute-heading">
     <h2 id="contribute-heading">Share your font</h2>
-    <p>GitHub will open with your font file already filled in. Then:</p>
     <ol>
-      <li>Sign in to GitHub if asked.</li>
+      <li><a id="contribute-fork" target="_blank" rel="noopener">Fork GitArt</a> and click <b>Create fork</b>.
+        Skip this if you already have a fork.</li>
+      <li>Come back here and click <b>Continue to GitHub</b>. Your font file opens already filled in.</li>
       <li id="contribute-paste" hidden>Paste the font into the empty file (it is already copied).</li>
       <li>Click <b>Commit changes…</b> and then <b>Propose changes</b>.</li>
       <li>Click <b>Create pull request</b>.</li>
     </ol>
     <p class="card-hint">
-      GitHub makes a copy of GitArt for you automatically, so you don't need git. Once it's reviewed and
-      merged, your font shows up for everyone as <b id="contribute-label"></b>.
+      Everything happens on the GitHub website, so you don't need git. Once it's reviewed and merged, your
+      font shows up for everyone as <b id="contribute-label"></b>.
     </p>
     <div class="dialog-actions">
       <button type="button" id="contribute-cancel" class="small-btn">Cancel</button>
