@@ -21,6 +21,7 @@
 - Select a year (choosing a year before joining GitHub is better).
 - Left click on the squares to activate and right click to deactivate them.
 - Or type a word into the text box to draw it on the graph, then adjust squares by hand if you like.
+- Pick a font for the text, or make your own in the [Font Editor](https://gitart.pages.dev/font-editor).
 - Click on one of the `Generate` buttons and follow the rest of the instructions.
 
 <!-- <details>
@@ -54,6 +55,29 @@
 - Easily create Git commits to modify the contribution graph on GitHub.
 - Customize the contribution graph for artistic, personal, or branding purposes.
 
+## Fonts
+
+Fonts live in [`public/fonts`](public/fonts), one JSON file per font. Each glyph is a list of rows where `#` is a filled square and `.` is empty. A font can be 1 to 7 rows tall and each glyph can be its own width.
+
+```json
+{
+  "name": "Classic",
+  "author": "sameemul-haque",
+  "height": 5,
+  "glyphs": {
+    "A": [".#.", "#.#", "###", "#.#", "#.#"]
+  }
+}
+```
+
+### Add your font
+
+1. Draw it in the [Font Editor](https://gitart.pages.dev/font-editor). It needs at least A to Z.
+2. Click **Share on GitHub**. GitHub opens with your font file filled in and forks the repo for you.
+3. Click **Commit changes…**, then **Propose changes**, then **Create pull request**.
+
+Prefer git? Export the file from the editor, add it to `public/fonts` in your fork as `your-font-name.json` and open a pull request. A check runs on the pull request, and `public/fonts/index.json` is updated automatically after merging.
+
 ## Examples
 <details>
     <summary>Example images</summary>
@@ -80,6 +104,7 @@ Plain HTML, CSS and JavaScript with no build step. Serve the `public` folder wit
 public/
 ├── index.html          main page
 ├── examples.html       examples page
+├── font-editor.html    font editor page
 ├── css/                one stylesheet per section of the page
 │   ├── base.css        variables, body, shared link styles
 │   ├── header.css      logo, title, description
@@ -89,16 +114,21 @@ public/
 │   ├── generate.css    generate button
 │   ├── code-editor.css generated commands panel
 │   ├── faq.css         faq section
-│   └── examples.css    examples page
+│   ├── examples.css    examples page
+│   └── font-editor.css font editor page
 ├── js/                 ES modules, loaded from main.js
 │   ├── main.js         wires up the page
 │   ├── calendar.js     builds the graph for a year, square click handling
 │   ├── dates.js        date formatting helpers
-│   ├── font.js         3x5 pixel font used to draw text
+│   ├── font-format.js  font format, validation and json output
+│   ├── fonts.js        loads built-in fonts and saved custom fonts
+│   ├── font-picker.js  searchable font picker
+│   ├── font-editor.js  font editor page
 │   ├── text-draw.js    draws typed text onto the graph
 │   ├── commands.js     builds, copies and downloads the git commands
 │   ├── github.js       GitHub join date lookup
 │   └── icons.js        svg icon paths
+├── fonts/              one json file per font, plus index.json
 ├── assets/             logo and example images
 ├── sitemap.xml
 ├── robots.txt
