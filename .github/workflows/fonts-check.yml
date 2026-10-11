@@ -1,0 +1,21 @@
+name: Check fonts
+
+on:
+  pull_request:
+    paths:
+      - "public/fonts/**"
+      - "public/js/font-format.js"
+      - ".github/scripts/fonts.mjs"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node .github/scripts/fonts.mjs check
