@@ -81,7 +81,13 @@
   font-size: 0.85rem;
   text-decoration: none;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
+  touch-action: manipulation;
+  transition: border-color 0.2s, color 0.2s, transform 0.1s ease-out;
+}
+
+.small-btn:active:not(:disabled),
+.primary-btn:active:not(:disabled) {
+  transform: scale(0.97);
 }
 
 .small-btn:hover,
@@ -144,6 +150,12 @@
   font-family: inherit;
   font-size: 0.85rem;
   cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.1s ease-out;
+}
+
+.char-btn:active {
+  transform: scale(0.92);
 }
 
 .char-btn.required {
@@ -329,10 +341,34 @@
   border: 1px solid #30363d;
   border-radius: 8px;
   font-size: 0.9rem;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out, overlay 0.2s allow-discrete, display 0.2s allow-discrete;
+}
+
+.contribute-dialog:not([open]) {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+@starting-style {
+  .contribute-dialog[open] {
+    opacity: 0;
+    transform: scale(0.96);
+  }
 }
 
 .contribute-dialog::backdrop {
   background-color: rgba(1, 4, 9, 0.7);
+  transition: background-color 0.2s ease-out, overlay 0.2s allow-discrete, display 0.2s allow-discrete;
+}
+
+.contribute-dialog:not([open])::backdrop {
+  background-color: transparent;
+}
+
+@starting-style {
+  .contribute-dialog[open]::backdrop {
+    background-color: transparent;
+  }
 }
 
 .contribute-dialog h2 {

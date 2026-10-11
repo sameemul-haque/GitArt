@@ -53,7 +53,8 @@ export function displayCode() {
     return;
   }
   codeContainerElement.style.display = "block";
-  codeContainerElement.scrollIntoView({ behavior: "smooth" });
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  codeContainerElement.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
 }
 
 export function generateShellScript() {

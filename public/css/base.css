@@ -8,7 +8,7 @@ body {
   color: #fafbfc;
   background-color: #0d1117;
   font-style: normal;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-family: "Poppins", sans-serif;
 }
 
@@ -31,4 +31,14 @@ button.underline-text {
 
 #github {
   color: #fafbfc;
+}
+
+/* keep feedback, drop the movement */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  ::backdrop {
+    transition-property: color, background-color, border-color, opacity !important;
+  }
 }

@@ -40,7 +40,12 @@
   font-family: inherit;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
+  touch-action: manipulation;
+  transition: border-color 0.2s, color 0.2s, transform 0.1s ease-out;
+}
+
+.clear-btn:active {
+  transform: scale(0.97);
 }
 
 .clear-btn:hover,

@@ -24,9 +24,22 @@
   border-radius: 5px;
   background-color: #39d353;
   cursor: pointer;
-  transition: all 0.2s;
+  touch-action: manipulation;
+  transition: transform 0.2s ease-out;
 }
 
-.generate-btn:hover {
-  transform: scale(1.05);
+@media (hover: hover) {
+  .generate-btn:hover {
+    transform: scale(1.05);
+  }
+}
+
+.generate-btn:focus-visible {
+  outline: 2px solid #39d353;
+  outline-offset: 2px;
+}
+
+.generate-btn:active {
+  transform: scale(0.97);
+  transition-duration: 0.1s;
 }

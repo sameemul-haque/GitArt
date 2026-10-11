@@ -27,11 +27,21 @@
   border-radius: 5px;
   background: none;
   cursor: pointer;
-  transition: .2s ease;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease, transform 0.1s ease-out;
+}
+
+.icon-btn:active {
+  transform: scale(0.92);
 }
 
 .icon-btn:hover {
   background-color: #0d1117;
+}
+
+.icon-btn:focus-visible {
+  outline: 2px solid #39d353;
+  outline-offset: 1px;
 }
 
 .code-icon, .download-icon {
