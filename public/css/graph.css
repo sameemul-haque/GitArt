@@ -50,6 +50,13 @@
   border-color: #f85149;
 }
 
+.clear-btn.undo,
+.clear-btn.undo:hover,
+.clear-btn.undo:focus-visible {
+  color: #39d353;
+  border-color: #39d353;
+}
+
 .year-picker {
   display: inline-flex;
   align-items: center;

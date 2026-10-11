@@ -43,12 +43,24 @@ export function redrawText() {
   applyText();
 }
 
+// returns a function that puts everything back
 export function clearGraph() {
+  const levels = [...getSquares()].map(square => square.getAttribute("data-level"));
+  const saved = { typedText, value: textInput.value, textSquares };
+
   textInput.value = "";
   typedText = "";
   textSquares = new Map();
   clearSquares();
   applyText();
+
+  return function () {
+    [...getSquares()].forEach((square, index) => square.setAttribute("data-level", levels[index]));
+    typedText = saved.typedText;
+    textInput.value = saved.value;
+    textSquares = saved.textSquares;
+    applyText();
+  };
 }
 
 function textColumns() {
