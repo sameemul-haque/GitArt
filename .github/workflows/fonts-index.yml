@@ -1,0 +1,30 @@
+name: Update font index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/fonts/**"
+
+permissions:
+  contents: write
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node .github/scripts/fonts.mjs index
+      - name: Commit index
+        run: |
+          if git diff --quiet public/fonts/index.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/fonts/index.json
+          git commit -m "chore: update font index"
+          git push
