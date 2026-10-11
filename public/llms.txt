@@ -10,3 +10,4 @@ How it works: pick a year, type a word or click squares on the calendar, generat
 - [Examples](https://gitart.pages.dev/examples): finished contribution graphs
 - [Font Editor](https://gitart.pages.dev/font-editor): draw a custom pixel font, use it in GitArt or share it on GitHub
 - [Source code](https://github.com/sameemul-haque/GitArt): open source under GPL-3.0
+- [Blog post](https://sameem.dev/projects/gitart/): the story behind GitArt and how it was built

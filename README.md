@@ -8,6 +8,8 @@
 	<a href="https://gitart.pages.dev/"><img src="https://img.shields.io/badge/website-238636?style=for-the-badge"/></a>
 	˙
 	<a href="https://buymeacoffee.com/sameemul_haque"><img src="https://img.shields.io/badge/Buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=1B1B1B"/></a>
+	˙
+	<a href="https://sameem.dev/projects/gitart/"><img src="https://img.shields.io/badge/blog-238636?style=for-the-badge"/></a>
  	˙
  	<a href="#usage"><img src="https://img.shields.io/badge/usage-238636?style=for-the-badge"/></a>
 </h6>
